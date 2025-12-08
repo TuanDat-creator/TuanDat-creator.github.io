@@ -9,101 +9,93 @@
     <style>
         /* --- CSS VARIABLES & GLOBAL STYLES --- */
         :root {
-            /* ĐỔI SANG DARK THEME */
-            --bg-body: #020c1b;       /* Màu nền bao quanh ngoài cùng: Đen xanh */
-            --bg-container: #0a192f;  /* Màu nền hộp nội dung: Xanh navy đậm */
-            --text-main: #ccd6f6;     /* Màu chữ chính: Trắng bạc */
-            --text-muted: #8892b0;    /* Màu chữ phụ: Xám xanh */
+            --bg-body: #020c1b;       /* Đen xanh sâu thẳm */
+            --bg-container: rgba(10, 25, 47, 0.85);  /* Xanh navy đậm bán trong suốt */
+            --text-main: #ccd6f6;     /* Trắng bạc */
+            --text-muted: #8892b0;    /* Xám xanh */
             
-            --accent-blue: #64ffda;   /* Xanh ngọc - Điểm nhấn nổi bật trên nền tối */
-            --accent-gold: #ffd700;   /* Vàng ánh kim - Cho các ngôi sao và điểm nhấn */
+            --accent-blue: #64ffda;   /* Xanh ngọc sáng (điểm nhấn chính) */
+            --accent-galaxy: #4d80e4; /* Xanh dương vũ trụ (cho sao) */
+            --accent-gold: #ffd700;   /* Vàng ánh kim */
             
-            /* Gradient bầu trời đêm giữ nguyên nhưng sâu hơn */
-            --header-bg: linear-gradient(180deg, #020c1b 0%, #112240 100%); 
+            /* Gradient nền tổng thể */
+            --main-bg-gradient: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
         }
 
         body {
             font-family: 'Montserrat', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-body);
+            background: var(--main-bg-gradient);
             color: var(--text-main);
             margin: 0;
             padding: 0;
             display: flex;
             justify-content: center;
             line-height: 1.6;
+            min-height: 100vh;
+            overflow-x: hidden; /* Ngăn thanh cuộn ngang */
+        }
+
+        /* Container chứa các ngôi sao được tạo bởi JS */
+        #stars-container {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; /* Nằm sau tất cả nội dung */
+            pointer-events: none;
+        }
+
+        /* Class chung cho các ngôi sao sinh ra bởi JS */
+        .generated-star {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: twinkle infinite ease-in-out;
+        }
+
+        /* Hiệu ứng lấp lánh */
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; transform: scale(0.8); }
+            50% { opacity: 1; transform: scale(1.1); }
         }
 
         .container {
             width: 100%;
             max-width: 900px;
-            background: var(--bg-container); /* Nền xanh navy thay vì trắng */
+            background: var(--bg-container);
             margin: 40px auto;
-            /* Thêm viền sáng nhẹ để tách biệt với nền body */
-            border: 1px solid #1e2d4d;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5); 
-            border-radius: 8px;
+            border: 1px solid rgba(100, 255, 218, 0.1); /* Viền xanh rất nhẹ */
+            box-shadow: 0 0 40px rgba(0,0,0,0.6); 
+            border-radius: 12px;
             overflow: hidden;
+            backdrop-filter: blur(5px); /* Hiệu ứng mờ kính nhẹ giúp nổi bật nội dung */
+            position: relative;
+            z-index: 1;
         }
         
-        /* --- ANIMATED HEADER SECTION --- */
+        /* --- HEADER SECTION --- */
         header {
             position: relative;
-            background: var(--header-bg);
-            padding: 80px 50px; /* Tăng padding để tên to có chỗ thở */
+            /* Nền header trong suốt để nhìn xuyên thấu sao bên dưới */
+            background: linear-gradient(180deg, rgba(2, 12, 27, 0.8) 0%, rgba(17, 34, 64, 0.8) 100%);
+            padding: 80px 50px;
             text-align: left;
             color: #fff;
             overflow: hidden;
             border-bottom: 1px solid rgba(100, 255, 218, 0.1);
         }
 
-        /* Tạo hiệu ứng sao lấp lánh */
-        @keyframes twinkle {
-            0% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 2px #fff; }
-            50% { opacity: 1; transform: scale(1.2); box-shadow: 0 0 10px #fff; }
-            100% { opacity: 0.3; transform: scale(0.8); box-shadow: 0 0 2px #fff; }
-        }
-        .star {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            animation: twinkle infinite ease-in-out;
-        }
-        
-        /* CẤU HÌNH SAO (Nhiều hơn & To hơn) */
-        /* Sao nhỏ */
-        .s1 { width: 2px; height: 2px; top: 20%; left: 15%; animation-duration: 3s; }
-        .s2 { width: 2px; height: 2px; top: 15%; right: 20%; animation-duration: 4s; animation-delay: 1s;}
-        .s3 { width: 1px; height: 1px; bottom: 30%; left: 40%; animation-duration: 2s; animation-delay: 2s;}
-        
-        /* Sao Vừa */
-        .s4 { width: 3px; height: 3px; top: 60%; right: 10%; animation-duration: 5s; }
-        .s5 { width: 3px; height: 3px; top: 80%; left: 5%; animation-duration: 4s; }
-        .s6 { width: 3px; height: 3px; top: 10%; left: 50%; animation-duration: 3.5s; }
-        .s7 { width: 3px; height: 3px; top: 40%; right: 40%; animation-duration: 4.5s; }
-
-        /* Sao TO (theo yêu cầu) */
-        .s8 { width: 4px; height: 4px; top: 25%; left: 80%; animation-duration: 6s; box-shadow: 0 0 5px #fff;}
-        .s9 { width: 5px; height: 5px; bottom: 15%; left: 20%; animation-duration: 5s; box-shadow: 0 0 8px #fff;}
-        .s10 { width: 4px; height: 4px; top: 5%; right: 5%; animation-duration: 7s; }
-        
-        /* Sao rải rác thêm */
-        .s11 { width: 2px; height: 2px; top: 50%; left: 10%; animation-duration: 3s; }
-        .s12 { width: 2px; height: 2px; bottom: 10%; right: 30%; animation-duration: 4s; }
-
         header h1 {
-            /* YÊU CẦU: Tên to hơn */
             font-size: 5rem; 
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 6px;
-            font-weight: 700;
+            font-weight: 800;
             position: relative;
             z-index: 2;
-            /* Gradient chữ nhẹ */
-            background: linear-gradient(to right, #ffffff, #a8b2d1);
+            /* Gradient chữ bạc sang xanh nhạt */
+            background: linear-gradient(to right bottom, #ffffff, #a8b2d1, var(--accent-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            filter: drop-shadow(0 0 10px rgba(100, 255, 218, 0.3));
         }
         .subtitle {
             font-size: 1.3rem;
@@ -114,25 +106,23 @@
             position: relative;
             z-index: 2;
         }
-        .subtitle span { color: var(--accent-blue); } 
+        .subtitle span { color: var(--accent-blue); font-weight: bold;} 
 
         /* --- MAIN CONTENT --- */
         .content-wrapper { padding: 50px; }
 
-        /* QUOTE BOX - Chuyển sang màu tối */
+        /* QUOTE BOX */
         .quote-box {
-            background: rgba(17, 34, 64, 0.7); /* Màu tối trong suốt */
+            background: rgba(17, 34, 64, 0.6);
             border-left: 4px solid var(--accent-blue);
-            border: 1px solid #233554; /* Thêm viền nhẹ */
-            border-left-width: 4px; /* Giữ viền trái dày */
             padding: 25px;
             font-style: italic;
             color: var(--text-main);
             margin-bottom: 45px;
-            border-radius: 4px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
-        .quote-box strong { color: var(--accent-blue); }
+        .quote-box strong { color: var(--accent-blue); letter-spacing: 1px;}
 
         /* GRID SYSTEM */
         .grid-container {
@@ -149,10 +139,9 @@
             border-bottom: 1px solid #233554;
             padding-bottom: 10px;
             margin-top: 0;
-            color: var(--accent-blue); /* Màu xanh ngọc sáng */
+            color: var(--accent-blue);
             font-weight: 700;
-            display: flex;
-            align-items: center;
+            text-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
         }
         
         /* ITEMS STYLE */
@@ -160,11 +149,11 @@
         .item-title { 
             font-weight: 700; 
             font-size: 1.2rem; 
-            color: #e6f1ff; /* Trắng sáng */
+            color: #e6f1ff;
         }
         .item-meta { 
             font-size: 0.95rem; 
-            color: var(--accent-gold); /* Màu vàng */
+            color: var(--accent-gold); /* Dùng màu vàng làm điểm nhấn phụ */
             margin-bottom: 8px; 
             font-weight: 500; 
         }
@@ -179,179 +168,15 @@
             font-style: italic;
             color: var(--text-main);
             font-size: 0.95rem;
-            border-left: 2px solid var(--accent-gold);
+            border-left: 3px solid var(--accent-galaxy); /* Đổi sang màu xanh galaxy */
             padding-left: 15px;
-            background: rgba(255, 215, 0, 0.05); /* Nền vàng rất nhạt */
+            background: rgba(77, 128, 228, 0.1);
             padding: 10px 15px;
             border-radius: 0 4px 4px 0;
         }
 
-        /* TAGS (SKILLS) - Nổi bật trên nền tối */
+        /* TAGS (SKILLS) */
         .tag {
             display: inline-block;
-            background: #112240; /* Nền tag tối */
-            color: var(--accent-blue);
-            padding: 6px 14px;
-            margin-bottom: 10px;
-            margin-right: 6px;
-            border: 1px solid var(--accent-blue); /* Viền mảnh */
-            border-radius: 30px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .tag.main { 
-            background: rgba(100, 255, 218, 0.1); 
-            color: var(--accent-blue); 
-        }
-        .tag:hover { 
-            transform: translateY(-2px); 
-            background: var(--accent-blue);
-            color: #020c1b;
-        }
-
-        /* FOOTER & LINKS */
-        .footer {
-            margin-top: 60px;
-            padding-top: 25px;
-            border-top: 1px solid #233554;
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-        }
-        .footer a {
-            color: var(--text-main);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 600;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .footer a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-blue);
-            transition: width 0.3s ease;
-        }
-        .footer a:hover { color: var(--accent-blue); }
-        .footer a:hover::after { width: 100%; }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .grid-container { grid-template-columns: 1fr; gap: 40px; }
-            .container { margin: 0; border-radius: 0; border: none;}
-            header { padding: 60px 20px; }
-            header h1 { font-size: 3rem; } /* Giảm nhẹ trên mobile nhưng vẫn to */
-            .content-wrapper { padding: 30px 20px; }
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <header>
-        <div class="star s1"></div>
-        <div class="star s2"></div>
-        <div class="star s3"></div>
-        <div class="star s4"></div>
-        <div class="star s5"></div>
-        <div class="star s6"></div>
-        <div class="star s7"></div>
-        <div class="star s8"></div> <div class="star s9"></div> <div class="star s10"></div>
-        <div class="star s11"></div>
-        <div class="star s12"></div>
-
-        <h1>Tuan Dat</h1>
-        <div class="subtitle">Finance Student @FTU <span>|</span> Physics Enthusiast</div>
-    </header>
-
-    <div class="content-wrapper">
-        <div class="quote-box">
-            "Peace comes from within. Do not seek it without." <br>
-            — <strong>Buddha (Dhammapada)</strong>
-        </div>
-
-        <div class="grid-container">
-            <div class="main-content">
-                <section>
-                    <h2>🎓 Education</h2>
-                    <div class="item">
-                        <div class="item-title">Foreign Trade University (FTU)</div>
-                        <div class="item-meta">2022 - Present | Banking & Finance</div>
-                        <div class="item-desc">Major in Financial Analysis. Building a strong foundation in valuation, corporate finance, and data modeling.</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">Self-Study: The School of Physics</div>
-                        <div class="item-meta">Passion Project</div>
-                        <div class="item-desc">
-                            Exploring the beauty of the universe through <b>Astrophysics</b> and <b>General Relativity</b> theories.
-                            <span class="highlight-quote">"Look at the stars and see yourself running with them." — Marcus Aurelius</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>💼 Projects</h2>
-                    <div class="item">
-                        <div class="item-title">Data Analysis in Finance</div>
-                        <div class="item-desc">Using Python libraries to analyze market trends (Personal Research).</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">Digital Presence</div>
-                        <div class="item-desc">Sharing knowledge and perspectives on social platforms.</div>
-                    </div>
-                </section>
-            </div>
-
-            <div class="sidebar">
-                <section>
-                    <h2>🛠 Technical</h2>
-                    <div>
-                        <span class="tag main">Python</span>
-                        <span class="tag main">NumPy</span>
-                        <span class="tag main">Pandas</span>
-                        <br>
-                        <span class="tag">Canva</span>
-                        <span class="tag">Notion</span>
-                        <span class="tag">GitHub</span>
-                    </div>
-                </section>
-
-                <br>
-
-                <section>
-                    <h2>🧬 Lifestyle</h2>
-                    <div class="item">
-                        <div class="item-title">🔭 Astronomy</div>
-                        <div class="item-meta">Stargazing</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">💪 Gym</div>
-                        <div class="item-meta">Discipline</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">🏸 Badminton</div>
-                        <div class="item-meta">Agility</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">🎮 PUBG</div>
-                        <div class="item-meta">Tactics</div>
-                    </div>
-                </section>
-            </div>
-        </div>
-
-        <div class="footer">
-            <a href="https://github.com/TuanDat-creator">GitHub</a> • 
-            <a href="https://www.facebook.com/tuan.at.315430/">Facebook</a> • 
-            <a href="mailto:k61.2211320008@ftu.edu.vn">Email</a>
-        </div>
-    </div> 
-</div>
-
-</body>
-</html>
+            background: rgba(17, 34, 64, 0.8);
+            color

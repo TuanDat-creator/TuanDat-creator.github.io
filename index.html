@@ -9,7 +9,7 @@
         /* --- PHẦN STYLE GIAO DIỆN (CSS) --- */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f0f2f5; /* Nền xám nhạt */
+            background-color: #f0f2f5;
             color: #333;
             margin: 0;
             padding: 0;
@@ -23,8 +23,8 @@
             margin-top: 40px;
             margin-bottom: 40px;
             padding: 50px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Đổ bóng nhẹ sang trọng */
-            border-radius: 2px; /* Bo góc cực nhẹ cho nam tính */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-radius: 2px;
         }
         
         /* HEADER */
@@ -38,7 +38,7 @@
             font-size: 3rem;
             margin: 0;
             text-transform: uppercase;
-            letter-spacing: 3px; /* Giãn chữ tạo vẻ sang trọng */
+            letter-spacing: 3px;
             color: #222;
         }
         .subtitle {
@@ -80,6 +80,17 @@
         .item-title { font-weight: bold; font-size: 1.05rem; }
         .item-meta { font-size: 0.9rem; color: #777; margin-bottom: 5px; }
         .item-desc { font-size: 0.95rem; line-height: 1.6; }
+        
+        /* Highlight quote inside text */
+        .highlight-quote {
+            display: block;
+            margin-top: 8px;
+            font-style: italic;
+            color: #555;
+            font-size: 0.9rem;
+            border-left: 2px solid #ccc;
+            padding-left: 10px;
+        }
 
         /* TAGS (SKILLS) */
         .tag {
@@ -92,7 +103,7 @@
             font-size: 0.85rem;
             font-weight: 600;
         }
-        .tag.main { background: #333; color: #fff; } /* Màu đen cho skill chính */
+        .tag.main { background: #333; color: #fff; }
 
         /* FOOTER */
         .footer {
@@ -110,7 +121,7 @@
         }
         .footer a:hover { text-decoration: underline; }
 
-        /* Responsive cho điện thoại */
+        /* Responsive */
         @media (max-width: 768px) {
             .grid-container { grid-template-columns: 1fr; }
             .container { margin: 0; padding: 20px; }
@@ -123,12 +134,12 @@
 <div class="container">
     <header>
         <h1>Tuan Dat</h1>
-        <div class="subtitle">Finance Student @FTU &nbsp;|&nbsp; Physics Enthusiast &nbsp;|&nbsp; Stoic Mindset</div>
+        <div class="subtitle">Finance Student @FTU &nbsp;|&nbsp; Physics Enthusiast</div>
     </header>
 
     <div class="quote-box">
-        "Look at the stars and see yourself running with them." <br>
-        — <strong>Marcus Aurelius</strong>
+        "Peace comes from within. Do not seek it without." <br>
+        — <strong>Buddha (Dhammapada)</strong>
     </div>
 
     <div class="grid-container">
@@ -143,7 +154,10 @@
                 <div class="item">
                     <div class="item-title">Self-Study: The School of Physics</div>
                     <div class="item-meta">Passion Project</div>
-                    <div class="item-desc">Exploring the beauty of the universe through <b>Astrophysics</b> and <b>Wave Mechanics</b>. Seeking peace in the laws of nature.</div>
+                    <div class="item-desc">
+                        Exploring the beauty of the universe through <b>Astrophysics</b> and <b>General Relativity</b> theories.
+                        <span class="highlight-quote">"Look at the stars and see yourself running with them." — Marcus Aurelius</span>
+                    </div>
                 </div>
             </section>
 
@@ -155,7 +169,7 @@
                 </div>
                 <div class="item">
                     <div class="item-title">Digital Presence</div>
-                    <div class="item-desc">Sharing knowledge and stoic perspectives on social platforms.</div>
+                    <div class="item-desc">Sharing knowledge and perspectives on social platforms.</div>
                 </div>
             </section>
         </div>

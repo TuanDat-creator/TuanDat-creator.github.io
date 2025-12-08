@@ -179,4 +179,213 @@
         .tag {
             display: inline-block;
             background: rgba(17, 34, 64, 0.8);
-            color
+            color: var(--accent-blue);
+            padding: 8px 16px;
+            margin-bottom: 10px;
+            margin-right: 8px;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .tag.main { 
+            background: rgba(100, 255, 218, 0.15); 
+            color: var(--accent-blue); 
+            border-color: var(--accent-blue);
+        }
+        .tag:hover { 
+            transform: translateY(-3px); 
+            background: var(--accent-blue);
+            color: #020c1b;
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.3);
+        }
+
+        /* FOOTER & LINKS */
+        .footer {
+            margin-top: 60px;
+            padding-top: 25px;
+            border-top: 1px solid #233554;
+            text-align: center;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        .footer a {
+            color: var(--text-main);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .footer a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-blue);
+            transition: width 0.3s ease;
+        }
+        .footer a:hover { color: var(--accent-blue); }
+        .footer a:hover::after { width: 100%; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .grid-container { grid-template-columns: 1fr; gap: 40px; }
+            .container { margin: 0; border-radius: 0; border: none; backdrop-filter: none;}
+            header { padding: 60px 30px; }
+            header h1 { font-size: 3.2rem; letter-spacing: 3px; }
+            .content-wrapper { padding: 30px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<div id="stars-container"></div>
+
+<div class="container">
+    <header>
+        <h1>Tuan Dat</h1>
+        <div class="subtitle">Finance Student @FTU <span>|</span> Physics Enthusiast</div>
+    </header>
+
+    <div class="content-wrapper">
+        <div class="quote-box">
+            "Peace comes from within. Do not seek it without." <br>
+            — <strong>Buddha (Dhammapada)</strong>
+        </div>
+
+        <div class="grid-container">
+            <div class="main-content">
+                <section>
+                    <h2>🎓 Education</h2>
+                    <div class="item">
+                        <div class="item-title">Foreign Trade University (FTU)</div>
+                        <div class="item-meta">2022 - Present | Banking & Finance</div>
+                        <div class="item-desc">Major in Financial Analysis. Building a strong foundation in valuation, corporate finance, and data modeling.</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Self-Study: The School of Physics</div>
+                        <div class="item-meta">Passion Project</div>
+                        <div class="item-desc">
+                            Exploring the beauty of the universe through <b>Astrophysics</b> and <b>General Relativity</b> theories.
+                            <span class="highlight-quote">"Look at the stars and see yourself running with them." — Marcus Aurelius</span>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>💼 Projects</h2>
+                    <div class="item">
+                        <div class="item-title">Data Analysis in Finance</div>
+                        <div class="item-desc">Using Python libraries to analyze market trends (Personal Research).</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Digital Presence</div>
+                        <div class="item-desc">Sharing knowledge and perspectives on social platforms.</div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="sidebar">
+                <section>
+                    <h2>🛠 Technical</h2>
+                    <div>
+                        <span class="tag main">Python</span>
+                        <span class="tag main">NumPy</span>
+                        <span class="tag main">Pandas</span>
+                        <br>
+                        <span class="tag">Canva</span>
+                        <span class="tag">Notion</span>
+                        <span class="tag">GitHub</span>
+                    </div>
+                </section>
+
+                <br>
+
+                <section>
+                    <h2>🧬 Lifestyle</h2>
+                    <div class="item">
+                        <div class="item-title">🔭 Astronomy</div>
+                        <div class="item-meta">Stargazing</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">💪 Gym</div>
+                        <div class="item-meta">Discipline</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">🏸 Badminton</div>
+                        <div class="item-meta">Agility</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">🎮 PUBG</div>
+                        <div class="item-meta">Tactics</div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <div class="footer">
+            <a href="https://github.com/TuanDat-creator">GitHub</a> • 
+            <a href="https://www.facebook.com/tuan.at.315430/">Facebook</a> • 
+            <a href="mailto:k61.2211320008@ftu.edu.vn">Email</a>
+        </div>
+    </div> 
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const starsContainer = document.getElementById('stars-container');
+        // SỐ LƯỢNG SAO: Thay đổi số này nếu muốn nhiều hoặc ít hơn
+        const numStars = 150; 
+
+        // Mảng màu sắc galaxy: Trắng, Xanh ngọc, Xanh dương đậm
+        const colors = ['#ffffff', '#64ffda', '#4d80e4']; 
+
+        for (let i = 0; i < numStars; i++) {
+            const star = document.createElement('div');
+            star.classList.add('generated-star');
+
+            // Vị trí ngẫu nhiên trên toàn màn hình
+            star.style.left = `${Math.random() * 100}vw`;
+            star.style.top = `${Math.random() * 100}vh`;
+
+            // Kích thước ngẫu nhiên: Từ 2px đến 7px (To hơn yêu cầu trước)
+            const size = Math.random() * 5 + 2;
+            star.style.width = `${size}px`;
+            star.style.height = `${size}px`;
+
+            // Chọn màu ngẫu nhiên
+            // Tăng tỉ lệ xuất hiện màu xanh để tạo cảm giác galaxy (60% xanh, 40% trắng)
+            let colorIndex;
+            const randomChance = Math.random();
+            if (randomChance < 0.4) {
+                colorIndex = 0; // White
+            } else if (randomChance < 0.7) {
+                colorIndex = 1; // Mint Blue
+            } else {
+                colorIndex = 2; // Deep Galaxy Blue
+            }
+            
+            const selectedColor = colors[colorIndex];
+            star.style.background = selectedColor;
+            
+            // Nếu là sao màu xanh, thêm hiệu ứng phát sáng (box-shadow)
+            if (colorIndex > 0) {
+                 star.style.boxShadow = `0 0 ${size * 2}px ${selectedColor}`;
+                 star.style.opacity = 0.9; // Sao màu trông rõ hơn
+            }
+
+            // Tốc độ và độ trễ hiệu ứng lấp lánh ngẫu nhiên để không bị đồng bộ
+            star.style.animationDuration = `${Math.random() * 3 + 2}s`; // 2s đến 5s
+            star.style.animationDelay = `${Math.random() * 5}s`;
+
+            starsContainer.appendChild(star);
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -3,24 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuan Dat | Banking & Cosmos</title>
+    <title>Tuan Dat | Professional Profile</title>
     <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        /* --- CSS VARIABLES & GLOBAL STYLES --- */
+        /* --- PROFESSIONAL NEUTRAL THEME --- */
         :root {
-            --bg-body: #020c1b;
-            --bg-card: rgba(17, 34, 64, 0.75);
-            --text-main: #ccd6f6;
-            --text-muted: #8892b0;
-            --accent-blue: #64ffda;   
-            --accent-galaxy: #4d80e4;
-            --accent-gold: #ffd700;
+            /* Nền tối nhưng thiên về Xanh đen công sở (Corporate Navy) */
+            --bg-body: #0f172a; 
+            --bg-card: rgba(30, 41, 59, 0.7); /* Màu xanh đá phiến */
+            
+            /* Màu chữ */
+            --text-main: #f8fafc; /* Trắng sáng */
+            --text-muted: #94a3b8; /* Xám ghi */
+            
+            /* Màu điểm nhấn: Xanh dương trung tính (giống màu thương hiệu bank) */
+            --accent-primary: #38bdf8; 
+            --accent-secondary: #e2e8f0; /* Viền sáng nhẹ */
+            
+            --border-color: rgba(148, 163, 184, 0.2);
         }
 
         body {
-            font-family: 'Montserrat', sans-serif;
-            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            font-family: 'Inter', sans-serif; /* Font Inter hiện đại, sạch sẽ hơn Montserrat cho văn bản dài */
+            background: linear-gradient(to bottom, #0f172a, #020617);
             color: var(--text-main);
             margin: 0;
             padding: 0;
@@ -31,7 +37,7 @@
             overflow-x: hidden;
         }
 
-        /* Container chứa sao */
+        /* Sao nền trung tính */
         #stars-container {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -41,27 +47,29 @@
         .generated-star {
             position: absolute;
             border-radius: 50%;
-            animation: twinkle infinite ease-in-out;
+            background: #fff;
+            animation: floatStar infinite ease-in-out;
         }
-        @keyframes twinkle {
-            0%, 100% { opacity: 0.3; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1.2); }
+        @keyframes floatStar {
+            0%, 100% { opacity: 0.2; transform: translateY(0); }
+            50% { opacity: 0.8; transform: translateY(-10px); }
         }
 
-        /* --- MAIN LAYOUT --- */
+        /* --- LAYOUT --- */
         .container {
             width: 95%;
             max-width: 1200px;
             height: 90vh;
             display: grid;
-            grid-template-columns: 35% 65%;
-            gap: 20px;
-            background: rgba(10, 25, 47, 0.3);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            grid-template-columns: 32% 66%; /* Điều chỉnh tỷ lệ cột */
+            gap: 24px;
+            /* Hiệu ứng kính mờ sương (Frosted Glass) chuyên nghiệp */
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
             overflow: hidden;
         }
 
@@ -70,274 +78,159 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding: 40px;
-            background: rgba(2, 12, 27, 0.6);
-            border-radius: 15px;
-            border: 1px solid rgba(100, 255, 218, 0.05);
+            padding: 30px;
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
             text-align: left;
         }
 
         .profile-section h1 {
-            font-size: 3.8rem; 
-            white-space: nowrap; 
+            font-size: 3.5rem; 
+            white-space: nowrap;
             margin: 0;
-            line-height: 1.2;
+            line-height: 1.1;
             text-transform: uppercase;
             font-weight: 800;
-            background: linear-gradient(to right bottom, #fff, #a8b2d1, var(--accent-blue));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 5px;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            margin-bottom: 8px;
         }
 
-        .subtitle {
+        .role-title {
             font-size: 1.1rem;
-            color: var(--accent-blue);
-            margin-bottom: 25px;
-            letter-spacing: 1px;
+            color: var(--accent-primary);
+            margin-bottom: 24px;
             font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
 
-        .intro-box {
-            font-size: 1rem;
+        .intro-text {
+            font-size: 0.95rem;
             color: var(--text-muted);
-            line-height: 1.6;
+            line-height: 1.7;
             margin-bottom: 30px;
-            border-left: 3px solid var(--accent-gold);
-            padding-left: 15px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
         }
-        .intro-box p { margin: 0; margin-bottom: 10px; }
-        .intro-box p:last-child { margin-bottom: 0; }
-        .intro-box strong { color: #fff; }
 
-        .contact-info {
+        .contact-group {
             margin-top: auto;
             display: flex;
-            gap: 15px;
+            flex-direction: column;
+            gap: 12px;
         }
+        
         .btn-contact {
             text-decoration: none;
-            color: var(--accent-blue);
-            border: 1px solid var(--accent-blue);
-            padding: 10px 25px;
-            border-radius: 5px;
+            color: var(--text-main);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 12px 20px;
+            border-radius: 6px;
             font-size: 0.9rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
+            font-weight: 500;
+            border: 1px solid var(--border-color);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
         .btn-contact:hover {
-            background: rgba(100, 255, 218, 0.1);
-            box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
+            background: var(--accent-primary);
+            color: #0f172a;
+            border-color: var(--accent-primary);
         }
 
         /* --- RIGHT COLUMN (CONTENT) --- */
         .content-section {
             overflow-y: auto;
-            padding-right: 10px;
+            padding-right: 12px;
+            /* Scrollbar mảnh */
             scrollbar-width: thin;
-            scrollbar-color: var(--accent-blue) transparent;
+            scrollbar-color: var(--border-color) transparent;
         }
-        .content-section::-webkit-scrollbar { width: 6px; }
-        .content-section::-webkit-scrollbar-thumb { background-color: var(--accent-blue); border-radius: 3px;}
+        .content-section::-webkit-scrollbar { width: 4px; }
+        .content-section::-webkit-scrollbar-thumb { background-color: var(--border-color); border-radius: 2px;}
 
+        /* Bố cục thẻ bên phải */
         .cards-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            display: flex;
+            flex-direction: column;
             gap: 20px;
         }
 
         .card {
             background: var(--bg-card);
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid rgba(100, 255, 218, 0.05);
-            transition: transform 0.3s ease;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(100, 255, 218, 0.3);
-            box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+            padding: 24px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
         }
 
-        .card h2 {
-            font-size: 1.1rem;
-            color: var(--accent-gold);
-            margin-top: 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding-bottom: 10px;
+        .card-header {
             display: flex;
             align-items: center;
-            gap: 10px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 12px;
+        }
+        
+        .card h2 {
+            font-size: 1rem;
+            color: var(--text-main);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 700;
         }
 
-        .item { margin-bottom: 20px; }
-        .item:last-child { margin-bottom: 0; }
-        .item-title { color: #fff; font-weight: 700; font-size: 1rem; }
-        .item-meta { font-size: 0.85rem; color: var(--accent-blue); margin-bottom: 5px; }
-        .item-desc { font-size: 0.9rem; color: var(--text-muted); }
-
-        .tags-wrapper { display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag {
-            font-size: 0.8rem;
-            padding: 5px 12px;
-            background: rgba(100, 255, 218, 0.05);
-            color: var(--accent-blue);
-            border-radius: 20px;
-            border: 1px solid rgba(100, 255, 218, 0.2);
+        /* Timeline / List Items */
+        .experience-item {
+            margin-bottom: 24px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid var(--border-color);
         }
-
-        /* Style Quote */
-        .quote-text {
-            font-style: italic; 
-            text-align: center; 
-            color: #fff; 
-            font-size: 1.4rem; 
+        .experience-item:last-child { margin-bottom: 0; }
+        
+        .exp-role {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-main);
+            display: block;
+        }
+        .exp-company {
+            font-size: 0.9rem;
+            color: var(--accent-primary);
             font-weight: 600;
+            margin-bottom: 4px;
+            display: block;
+        }
+        .exp-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 8px;
+            display: block;
+        }
+        .exp-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
             line-height: 1.5;
         }
-        .quote-author {
-            display: block;
-            margin-top: 10px;
-            font-size: 1rem;
-            color: var(--accent-gold);
-            font-weight: normal;
+        .exp-desc ul {
+            margin: 5px 0 0 0;
+            padding-left: 18px;
         }
 
-        /* Responsive */
-        @media (max-width: 900px) {
-            .container { 
-                grid-template-columns: 1fr; 
-                height: auto; 
-                margin: 20px; 
-            }
-            .profile-section { text-align: center; align-items: center; }
-            .profile-section h1 { font-size: 3rem; white-space: normal; } 
-            .cards-grid { grid-template-columns: 1fr; }
-            body { align-items: flex-start; }
-            .content-section { overflow-y: visible; }
+        /* Grid nhỏ cho Skills và Awards */
+        .split-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
-    </style>
-</head>
-<body>
 
-    <div id="stars-container"></div>
-
-    <div class="container">
-        <aside class="profile-section">
-            <h1>TUAN DAT</h1>
-            <div class="subtitle">Banking Student & Physics Lover</div>
-            
-            <div class="intro-box">
-                <p>Hello! I am <strong>Tuan Dat</strong>.</p>
-                <p>Banking student at FTU with an endless passion for numbers and the vast cosmos. I love exploring the intersection between real-world data and natural laws.</p>
-                <p>Whether decoding financial statements or observing the stars, I am driven by a desire to find order amidst the apparent chaos.</p>
-            </div>
-
-            <div class="contact-info">
-                <a href="mailto:k61.2211320008@ftu.edu.vn" class="btn-contact">Email</a>
-                <a href="#" class="btn-contact">Facebook</a>
-                <a href="#" class="btn-contact">GitHub</a>
-            </div>
-        </aside>
-
-        <main class="content-section">
-            <div class="cards-grid">
-                
-                <div class="card">
-                    <h2>🎓 Education</h2>
-                    <div class="item">
-                        <div class="item-title">Foreign Trade University (FTU)</div>
-                        <div class="item-meta">2022 - Present | Banking & Finance</div>
-                        <div class="item-desc">Major in Banking. Focusing on Commercial Banking operations, Credit Risk management, and Financial Services.</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">Self-Study Physics</div>
-                        <div class="item-meta">Hobby</div>
-                        <div class="item-desc">Researching Astrophysics and General Relativity theories.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>🛠 Skills</h2>
-                    <div class="tags-wrapper">
-                        <span class="tag">Python</span>
-                        <span class="tag">NumPy</span>
-                        <span class="tag">Pandas</span>
-                        <span class="tag">Data Analysis</span>
-                        <span class="tag">Financial Modeling</span>
-                        <span class="tag">Notion</span>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>💼 Projects</h2>
-                    <div class="item">
-                        <div class="item-title">Sport Hub</div>
-                        <div class="item-desc">Building a management system and community platform for sports enthusiasts.</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">Advanced Banking Operations</div>
-                        <div class="item-desc">In-depth research and practice on commercial banking products and operational workflows.</div>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <h2>🧬 Lifestyle</h2>
-                    <div class="item">
-                        <div class="item-title">🔭 Astronomy</div>
-                        <div class="item-desc">Stargazing and identifying constellations.</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">🎮 Gaming & Sports</div>
-                        <div class="item-desc">PUBG (Tactics), Badminton (Agility), Gym (Discipline).</div>
-                    </div>
-                </div>
-
-                <div class="card" style="grid-column: 1 / -1; background: rgba(77, 128, 228, 0.15); display: flex; align-items: center; justify-content: center;">
-                    <div class="quote-text">
-                        "Peace comes from within. Do not seek it without."
-                        <span class="quote-author">— Buddha</span>
-                    </div>
-                </div>
-
-            </div>
-        </main>
-    </div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const starsContainer = document.getElementById('stars-container');
-            const numStars = 200; 
-            const colors = ['#ffffff', '#64ffda', '#4d80e4']; 
-
-            for (let i = 0; i < numStars; i++) {
-                const star = document.createElement('div');
-                star.classList.add('generated-star');
-                star.style.left = `${Math.random() * 100}vw`;
-                star.style.top = `${Math.random() * 100}vh`;
-                
-                const size = Math.random() * 5 + 2;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-
-                let colorIndex;
-                const r = Math.random();
-                if (r < 0.4) colorIndex = 0;
-                else if (r < 0.7) colorIndex = 1;
-                else colorIndex = 2;
-                
-                const color = colors[colorIndex];
-                star.style.background = color;
-                if (colorIndex > 0) {
-                    star.style.boxShadow = `0 0 ${size * 2}px ${color}`;
-                    star.style.opacity = 0.9;
-                }
-
-                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
-                star.style.animationDelay = `${Math.random() * 5}s`;
-                starsContainer.appendChild(star);
-            }
-        });
-    </script>
-</body>
-</html>
+        /* Awards Style */
+        .award-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 12px;

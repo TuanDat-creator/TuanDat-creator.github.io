@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
         /* --- CSS VARIABLES & GLOBAL STYLES --- */
         :root {
             --bg-body: #020c1b;
-            --bg-card: rgba(17, 34, 64, 0.75); /* Màu nền thẻ bán trong suốt */
+            --bg-card: rgba(17, 34, 64, 0.75);
             --text-main: #ccd6f6;
             --text-muted: #8892b0;
             --accent-blue: #64ffda;   
@@ -26,7 +26,7 @@
             padding: 0;
             min-height: 100vh;
             display: flex;
-            align-items: center; /* Căn giữa theo chiều dọc */
+            align-items: center;
             justify-content: center;
             overflow-x: hidden;
         }
@@ -48,29 +48,28 @@
             50% { opacity: 1; transform: scale(1.2); }
         }
 
-        /* --- MAIN LAYOUT (BỐ CỤC NGANG) --- */
+        /* --- MAIN LAYOUT --- */
         .container {
             width: 95%;
-            max-width: 1200px; /* Rộng hơn để dàn trang ngang */
-            height: 90vh; /* Chiếm 90% chiều cao màn hình */
+            max-width: 1200px;
+            height: 90vh;
             display: grid;
-            grid-template-columns: 35% 65%; /* Chia 2 cột: 35% trái - 65% phải */
+            grid-template-columns: 35% 65%;
             gap: 20px;
-            /* Khung viền kính */
             background: rgba(10, 25, 47, 0.3);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(100, 255, 218, 0.1);
             border-radius: 20px;
             padding: 20px;
             box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            overflow: hidden; /* Ẩn thanh cuộn ngoài container chính */
+            overflow: hidden;
         }
 
-        /* --- CỘT TRÁI (PROFILE) --- */
+        /* --- LEFT COLUMN (PROFILE) --- */
         .profile-section {
             display: flex;
             flex-direction: column;
-            justify-content: center; /* Căn giữa nội dung dọc */
+            justify-content: center;
             padding: 40px;
             background: rgba(2, 12, 27, 0.6);
             border-radius: 15px;
@@ -79,26 +78,27 @@
         }
 
         .profile-section h1 {
-            font-size: 4.5rem; /* Tên to */
+            /* Đã chỉnh để tên nằm trên 1 dòng */
+            font-size: 3.8rem; 
+            white-space: nowrap; /* Bắt buộc không xuống dòng */
             margin: 0;
-            line-height: 1;
+            line-height: 1.2;
             text-transform: uppercase;
             font-weight: 800;
             background: linear-gradient(to right bottom, #fff, #a8b2d1, var(--accent-blue));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--accent-blue);
             margin-bottom: 25px;
             letter-spacing: 1px;
             font-weight: 600;
         }
 
-        /* INTRO MỚI */
         .intro-box {
             font-size: 1rem;
             color: var(--text-muted);
@@ -107,11 +107,12 @@
             border-left: 3px solid var(--accent-gold);
             padding-left: 15px;
         }
-        .intro-box p { margin: 0; }
+        .intro-box p { margin: 0; margin-bottom: 10px; }
+        .intro-box p:last-child { margin-bottom: 0; }
         .intro-box strong { color: #fff; }
 
         .contact-info {
-            margin-top: auto; /* Đẩy xuống dưới cùng */
+            margin-top: auto;
             display: flex;
             gap: 15px;
         }
@@ -119,7 +120,7 @@
             text-decoration: none;
             color: var(--accent-blue);
             border: 1px solid var(--accent-blue);
-            padding: 10px 20px;
+            padding: 10px 25px;
             border-radius: 5px;
             font-size: 0.9rem;
             font-weight: 600;
@@ -130,21 +131,19 @@
             box-shadow: 0 0 15px rgba(100, 255, 218, 0.3);
         }
 
-        /* --- CỘT PHẢI (CONTENT SCROLL) --- */
+        /* --- RIGHT COLUMN (CONTENT) --- */
         .content-section {
-            overflow-y: auto; /* Cho phép cuộn dọc nội dung bên phải */
+            overflow-y: auto;
             padding-right: 10px;
-            /* Tùy chỉnh thanh cuộn */
             scrollbar-width: thin;
             scrollbar-color: var(--accent-blue) transparent;
         }
         .content-section::-webkit-scrollbar { width: 6px; }
         .content-section::-webkit-scrollbar-thumb { background-color: var(--accent-blue); border-radius: 3px;}
 
-        /* Grid bên trong cột phải */
         .cards-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 2 cột thẻ */
+            grid-template-columns: 1fr 1fr;
             gap: 20px;
         }
 
@@ -172,14 +171,12 @@
             gap: 10px;
         }
 
-        /* Item styles */
         .item { margin-bottom: 20px; }
         .item:last-child { margin-bottom: 0; }
         .item-title { color: #fff; font-weight: 700; font-size: 1rem; }
         .item-meta { font-size: 0.85rem; color: var(--accent-blue); margin-bottom: 5px; }
         .item-desc { font-size: 0.9rem; color: var(--text-muted); }
 
-        /* Tags */
         .tags-wrapper { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag {
             font-size: 0.8rem;
@@ -190,15 +187,33 @@
             border: 1px solid rgba(100, 255, 218, 0.2);
         }
 
+        /* Style riêng cho câu Quote to hơn */
+        .quote-text {
+            font-style: italic; 
+            text-align: center; 
+            color: #fff; 
+            /* Tăng kích thước chữ */
+            font-size: 1.4rem; 
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .quote-author {
+            display: block;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: normal;
+        }
+
         /* Responsive */
         @media (max-width: 900px) {
             .container { 
-                grid-template-columns: 1fr; /* Về 1 cột trên mobile */
+                grid-template-columns: 1fr; 
                 height: auto; 
                 margin: 20px; 
             }
             .profile-section { text-align: center; align-items: center; }
-            .profile-section h1 { font-size: 3.5rem; }
+            .profile-section h1 { font-size: 3rem; white-space: normal; } /* Mobile cho xuống dòng nếu cần */
             .cards-grid { grid-template-columns: 1fr; }
             body { align-items: flex-start; }
             .content-section { overflow-y: visible; }
@@ -211,17 +226,16 @@
 
     <div class="container">
         <aside class="profile-section">
-            <h1>Tuan<br>Dat</h1>
+            <h1>TUAN DAT</h1>
             <div class="subtitle">Finance Student & Physics Lover</div>
             
             <div class="intro-box">
-                <p>Xin chào! Mình là <strong>Tuấn Đạt</strong>.</p>
-                <br>
-                <p>Một sinh viên Tài chính tại FTU với niềm đam mê bất tận dành cho những con số và vũ trụ bao la. Mình thích khám phá sự giao thoa giữa dữ liệu thực tế và các quy luật tự nhiên.</p>
+                <p>Hello! I am <strong>Tuan Dat</strong>.</p>
+                <p>A Finance student at FTU with an endless passion for numbers and the vast cosmos. I love exploring the intersection between real-world data and natural laws.</p>
             </div>
 
             <div class="contact-info">
-                <a href="mailto:email@example.com" class="btn-contact">Email Me</a>
+                <a href="mailto:k61.2211320008@ftu.edu.vn" class="btn-contact">Email</a>
                 <a href="#" class="btn-contact">Facebook</a>
                 <a href="#" class="btn-contact">GitHub</a>
             </div>
@@ -235,12 +249,12 @@
                     <div class="item">
                         <div class="item-title">Foreign Trade University (FTU)</div>
                         <div class="item-meta">2022 - Present | Banking & Finance</div>
-                        <div class="item-desc">Chuyên ngành Phân tích Tài chính. Tập trung vào định giá tài sản và tài chính doanh nghiệp.</div>
+                        <div class="item-desc">Major in Financial Analysis. Focusing on asset valuation and corporate finance.</div>
                     </div>
                     <div class="item">
                         <div class="item-title">Self-Study Physics</div>
                         <div class="item-meta">Hobby</div>
-                        <div class="item-desc">Nghiên cứu Vật lý thiên văn và Thuyết tương đối rộng.</div>
+                        <div class="item-desc">Researching Astrophysics and General Relativity theories.</div>
                     </div>
                 </div>
 
@@ -261,11 +275,11 @@
                     <h2>💼 Projects</h2>
                     <div class="item">
                         <div class="item-title">Market Trend Analysis</div>
-                        <div class="item-desc">Sử dụng Python để trực quan hóa dữ liệu biến động giá cổ phiếu (Personal Project).</div>
+                        <div class="item-desc">Using Python to visualize stock price fluctuations (Personal Research).</div>
                     </div>
                     <div class="item">
                         <div class="item-title">Social Sharing</div>
-                        <div class="item-desc">Chia sẻ kiến thức về Vũ trụ học và Tài chính trên mạng xã hội.</div>
+                        <div class="item-desc">Sharing knowledge about Cosmology and Finance on social media.</div>
                     </div>
                 </div>
 
@@ -273,17 +287,18 @@
                     <h2>🧬 Lifestyle</h2>
                     <div class="item">
                         <div class="item-title">🔭 Astronomy</div>
-                        <div class="item-desc">Quan sát sao và tìm hiểu các chòm sao.</div>
+                        <div class="item-desc">Stargazing and identifying constellations.</div>
                     </div>
                     <div class="item">
                         <div class="item-title">🎮 Gaming & Sports</div>
-                        <div class="item-desc">PUBG (Tactics), Cầu lông (Agility), Gym (Discipline).</div>
+                        <div class="item-desc">PUBG (Tactics), Badminton (Agility), Gym (Discipline).</div>
                     </div>
                 </div>
 
-                <div class="card" style="grid-column: 1 / -1; background: rgba(77, 128, 228, 0.1);">
-                    <div class="item-desc" style="font-style: italic; text-align: center; color: #fff;">
-                        "Peace comes from within. Do not seek it without." — <strong>Buddha</strong>
+                <div class="card" style="grid-column: 1 / -1; background: rgba(77, 128, 228, 0.15); display: flex; align-items: center; justify-content: center;">
+                    <div class="quote-text">
+                        "Peace comes from within. Do not seek it without."
+                        <span class="quote-author">— Buddha</span>
                     </div>
                 </div>
 
@@ -294,7 +309,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const starsContainer = document.getElementById('stars-container');
-            const numStars = 200; // Số lượng sao
+            const numStars = 200; 
             const colors = ['#ffffff', '#64ffda', '#4d80e4']; 
 
             for (let i = 0; i < numStars; i++) {
@@ -303,7 +318,7 @@
                 star.style.left = `${Math.random() * 100}vw`;
                 star.style.top = `${Math.random() * 100}vh`;
                 
-                const size = Math.random() * 5 + 2; // Size từ 2px đến 7px
+                const size = Math.random() * 5 + 2;
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
 

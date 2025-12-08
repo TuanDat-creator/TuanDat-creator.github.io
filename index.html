@@ -149,4 +149,194 @@
         .card {
             background: var(--bg-card);
             padding: 25px;
-            border-radius:
+            border-radius: 12px;
+            border: 1px solid rgba(100, 255, 218, 0.05);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(100, 255, 218, 0.3);
+            box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+        }
+
+        .card h2 {
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            margin-top: 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .item { margin-bottom: 20px; }
+        .item:last-child { margin-bottom: 0; }
+        .item-title { color: #fff; font-weight: 700; font-size: 1rem; }
+        .item-meta { font-size: 0.85rem; color: var(--accent-blue); margin-bottom: 5px; }
+        .item-desc { font-size: 0.9rem; color: var(--text-muted); }
+
+        .tags-wrapper { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag {
+            font-size: 0.8rem;
+            padding: 5px 12px;
+            background: rgba(100, 255, 218, 0.05);
+            color: var(--accent-blue);
+            border-radius: 20px;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        /* Style riêng cho câu Quote to hơn */
+        .quote-text {
+            font-style: italic; 
+            text-align: center; 
+            color: #fff; 
+            font-size: 1.4rem; 
+            font-weight: 600;
+            line-height: 1.5;
+        }
+        .quote-author {
+            display: block;
+            margin-top: 10px;
+            font-size: 1rem;
+            color: var(--accent-gold);
+            font-weight: normal;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container { 
+                grid-template-columns: 1fr; 
+                height: auto; 
+                margin: 20px; 
+            }
+            .profile-section { text-align: center; align-items: center; }
+            .profile-section h1 { font-size: 3rem; white-space: normal; } 
+            .cards-grid { grid-template-columns: 1fr; }
+            body { align-items: flex-start; }
+            .content-section { overflow-y: visible; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="stars-container"></div>
+
+    <div class="container">
+        <aside class="profile-section">
+            <h1>TUAN DAT</h1>
+            <div class="subtitle">Finance Student & Physics Lover</div>
+            
+            <div class="intro-box">
+                <p>Hello! I am <strong>Tuan Dat</strong>.</p>
+                <p>A Finance student at FTU with an endless passion for numbers and the vast cosmos. I love exploring the intersection between real-world data and natural laws.</p>
+            </div>
+
+            <div class="contact-info">
+                <a href="mailto:k61.2211320008@ftu.edu.vn" class="btn-contact">Email</a>
+                <a href="#" class="btn-contact">Facebook</a>
+                <a href="#" class="btn-contact">GitHub</a>
+            </div>
+        </aside>
+
+        <main class="content-section">
+            <div class="cards-grid">
+                
+                <div class="card">
+                    <h2>🎓 Education</h2>
+                    <div class="item">
+                        <div class="item-title">Foreign Trade University (FTU)</div>
+                        <div class="item-meta">2022 - Present | Banking & Finance</div>
+                        <div class="item-desc">Major in Banking. Focusing on Commercial Banking operations, Credit Risk management, and Financial Services.</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Self-Study Physics</div>
+                        <div class="item-meta">Hobby</div>
+                        <div class="item-desc">Researching Astrophysics and General Relativity theories.</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>🛠 Skills</h2>
+                    <div class="tags-wrapper">
+                        <span class="tag">Python</span>
+                        <span class="tag">NumPy</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">Data Analysis</span>
+                        <span class="tag">Financial Modeling</span>
+                        <span class="tag">Notion</span>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>💼 Projects</h2>
+                    <div class="item">
+                        <div class="item-title">Sport Hub</div>
+                        <div class="item-desc">Building a management system and community platform for sports enthusiasts.</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">Advanced Banking Operations</div>
+                        <div class="item-desc">In-depth research and practice on commercial banking products and operational workflows.</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2>🧬 Lifestyle</h2>
+                    <div class="item">
+                        <div class="item-title">🔭 Astronomy</div>
+                        <div class="item-desc">Stargazing and identifying constellations.</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-title">🎮 Gaming & Sports</div>
+                        <div class="item-desc">PUBG (Tactics), Badminton (Agility), Gym (Discipline).</div>
+                    </div>
+                </div>
+
+                <div class="card" style="grid-column: 1 / -1; background: rgba(77, 128, 228, 0.15); display: flex; align-items: center; justify-content: center;">
+                    <div class="quote-text">
+                        "Peace comes from within. Do not seek it without."
+                        <span class="quote-author">— Buddha</span>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const starsContainer = document.getElementById('stars-container');
+            const numStars = 200; 
+            const colors = ['#ffffff', '#64ffda', '#4d80e4']; 
+
+            for (let i = 0; i < numStars; i++) {
+                const star = document.createElement('div');
+                star.classList.add('generated-star');
+                star.style.left = `${Math.random() * 100}vw`;
+                star.style.top = `${Math.random() * 100}vh`;
+                
+                const size = Math.random() * 5 + 2;
+                star.style.width = `${size}px`;
+                star.style.height = `${size}px`;
+
+                let colorIndex;
+                const r = Math.random();
+                if (r < 0.4) colorIndex = 0;
+                else if (r < 0.7) colorIndex = 1;
+                else colorIndex = 2;
+                
+                const color = colors[colorIndex];
+                star.style.background = color;
+                if (colorIndex > 0) {
+                    star.style.boxShadow = `0 0 ${size * 2}px ${color}`;
+                    star.style.opacity = 0.9;
+                }
+
+                star.style.animationDuration = `${Math.random() * 3 + 2}s`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                starsContainer.appendChild(star);
+            }
+        });
+    </script>
+</body>
+</html>

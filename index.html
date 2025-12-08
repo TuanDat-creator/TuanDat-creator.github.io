@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuan Dat | Finance & Cosmos</title>
+    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
+    <style>
+        /* --- PHẦN STYLE GIAO DIỆN (CSS) --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5; /* Nền xám nhạt */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: #ffffff;
+            margin-top: 40px;
+            margin-bottom: 40px;
+            padding: 50px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05); /* Đổ bóng nhẹ sang trọng */
+            border-radius: 2px; /* Bo góc cực nhẹ cho nam tính */
+        }
+        
+        /* HEADER */
+        header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 3px; /* Giãn chữ tạo vẻ sang trọng */
+            color: #222;
+        }
+        .subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* QUOTE SECTION */
+        .quote-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #333;
+            padding: 20px;
+            font-style: italic;
+            color: #555;
+            margin-bottom: 40px;
+        }
+
+        /* CONTENT GRID */
+        .grid-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Chia cột 2:1 */
+            gap: 40px;
+        }
+        
+        /* SECTIONS */
+        h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
+            margin-top: 0;
+            color: #000;
+        }
+        
+        /* LIST ITEMS */
+        .item { margin-bottom: 25px; }
+        .item-title { font-weight: bold; font-size: 1.05rem; }
+        .item-meta { font-size: 0.9rem; color: #777; margin-bottom: 5px; }
+        .item-desc { font-size: 0.95rem; line-height: 1.6; }
+
+        /* TAGS (SKILLS) */
+        .tag {
+            display: inline-block;
+            background: #eee;
+            color: #333;
+            padding: 5px 12px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        .tag.main { background: #333; color: #fff; } /* Màu đen cho skill chính */
+
+        /* FOOTER */
+        .footer {
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .footer a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 10px;
+            font-weight: bold;
+        }
+        .footer a:hover { text-decoration: underline; }
+
+        /* Responsive cho điện thoại */
+        @media (max-width: 768px) {
+            .grid-container { grid-template-columns: 1fr; }
+            .container { margin: 0; padding: 20px; }
+            h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Tuan Dat</h1>
+        <div class="subtitle">Finance Student @FTU &nbsp;|&nbsp; Physics Enthusiast &nbsp;|&nbsp; Stoic Mindset</div>
+    </header>
+
+    <div class="quote-box">
+        "Look at the stars and see yourself running with them." <br>
+        — <strong>Marcus Aurelius</strong>
+    </div>
+
+    <div class="grid-container">
+        <div class="main-content">
+            <section>
+                <h2>🎓 Education</h2>
+                <div class="item">
+                    <div class="item-title">Foreign Trade University (FTU)</div>
+                    <div class="item-meta">2022 - Present | Banking & Finance</div>
+                    <div class="item-desc">Major in Financial Analysis. Building a strong foundation in valuation, corporate finance, and data modeling.</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Self-Study: The School of Physics</div>
+                    <div class="item-meta">Passion Project</div>
+                    <div class="item-desc">Exploring the beauty of the universe through <b>Astrophysics</b> and <b>Wave Mechanics</b>. Seeking peace in the laws of nature.</div>
+                </div>
+            </section>
+
+            <section>
+                <h2>💼 Projects</h2>
+                <div class="item">
+                    <div class="item-title">Data Analysis in Finance</div>
+                    <div class="item-desc">Using Python libraries to analyze market trends (Personal Research).</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">Digital Presence</div>
+                    <div class="item-desc">Sharing knowledge and stoic perspectives on social platforms.</div>
+                </div>
+            </section>
+        </div>
+
+        <div class="sidebar">
+            <section>
+                <h2>🛠 Technical</h2>
+                <div>
+                    <span class="tag main">Python</span>
+                    <span class="tag main">NumPy</span>
+                    <span class="tag main">Pandas</span>
+                    <br>
+                    <span class="tag">Canva</span>
+                    <span class="tag">Notion</span>
+                    <span class="tag">GitHub</span>
+                </div>
+            </section>
+
+            <br>
+
+            <section>
+                <h2>🧬 Lifestyle</h2>
+                <div class="item">
+                    <div class="item-title">🔭 Astronomy</div>
+                    <div class="item-meta">Stargazing</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">💪 Gym</div>
+                    <div class="item-meta">Discipline</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">🏸 Badminton</div>
+                    <div class="item-meta">Agility</div>
+                </div>
+                <div class="item">
+                    <div class="item-title">🎮 PUBG</div>
+                    <div class="item-meta">Tactics</div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="footer">
+        <a href="https://github.com/TuanDat-creator">GitHub</a> • 
+        <a href="https://www.facebook.com/tuan.at.315430/">Facebook</a> • 
+        <a href="mailto:k61.2211320008@ftu.edu.vn">Email</a>
+    </div>
+</div>
+
+</body>
+</html>

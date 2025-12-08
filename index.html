@@ -1,299 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuan Dat | Finance & Cosmos</title>
-    <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
-    <style>
-        /* --- CSS VARIABLES & GLOBAL STYLES --- */
-        :root {
-            --bg-color: #f4f7f6;
-            --text-color: #333;
-            --accent-blue: #2c3e50; /* Xanh đêm sâu lắng */
-            --accent-gold: #cfa670; /* Vàng đồng trầm cho điểm nhấn */
-            --header-bg: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); /* Gradient bầu trời đêm */
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            line-height: 1.6;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
-            background: #ffffff;
-            margin: 40px auto;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
-            border-radius: 4px;
-            overflow: hidden; /* Để chứa phần header động */
-        }
-        
-        /* --- ANIMATED HEADER SECTION --- */
-        header {
-            position: relative;
-            background: var(--header-bg);
-            padding: 60px 50px;
-            text-align: left;
-            color: #fff;
-            overflow: hidden;
-        }
-
-        /* Tạo hiệu ứng sao lấp lánh */
-        @keyframes twinkle {
-            0% { opacity: 0.2; transform: scale(0.8); }
-            50% { opacity: 1; transform: scale(1); }
-            100% { opacity: 0.2; transform: scale(0.8); }
-        }
-        .star {
-            position: absolute;
-            background: #fff;
-            border-radius: 50%;
-            animation: twinkle infinite ease-in-out;
-        }
-        /* Đặt vị trí thủ công một vài ngôi sao để tạo chiều sâu */
-        .s1 { width: 2px; height: 2px; top: 20%; left: 15%; animation-duration: 4s; }
-        .s2 { width: 3px; height: 3px; top: 15%; right: 20%; animation-duration: 5s; animation-delay: 1s;}
-        .s3 { width: 1px; height: 1px; bottom: 30%; left: 40%; animation-duration: 3s; animation-delay: 2s;}
-        .s4 { width: 2px; height: 2px; top: 60%; right: 10%; animation-duration: 6s; }
-        .s5 { width: 1px; height: 1px; top: 80%; left: 5%; animation-duration: 4.5s; }
-
-        header h1 {
-            font-size: 3.5rem;
-            margin: 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-weight: 300;
-            position: relative; /* Để nổi lên trên các ngôi sao */
-            z-index: 2;
-        }
-        .subtitle {
-            font-size: 1.1rem;
-            color: rgba(255,255,255,0.8);
-            margin-top: 15px;
-            font-weight: 300;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 2;
-        }
-        .subtitle span { color: var(--accent-gold); } /* Nhấn màu vàng cho các dấu gạch đứng */
-
-        /* --- MAIN CONTENT --- */
-        .content-wrapper { padding: 50px; }
-
-        /* QUOTE BOX - Làm mềm hơn với gradient nhẹ */
-        .quote-box {
-            background: linear-gradient(to right, #f1f3f5, #ffffff);
-            border-left: 4px solid var(--accent-blue);
-            padding: 25px;
-            font-style: italic;
-            color: #555;
-            margin-bottom: 45px;
-            border-radius: 0 4px 4px 0;
-        }
-        .quote-box strong { color: var(--accent-blue); }
-
-        /* GRID SYSTEM */
-        .grid-container {
-            display: grid;
-            grid-template-columns: 65% 30%; /* Điều chỉnh tỷ lệ cột cho cân đối hơn */
-            gap: 5%;
-        }
-        
-        /* SECTIONS & HEADINGS */
-        h2 {
-            font-size: 1.3rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 0;
-            color: var(--accent-blue);
-            font-weight: 600;
-        }
-        
-        /* ITEMS STYLE */
-        .item { margin-bottom: 30px; }
-        .item-title { font-weight: 700; font-size: 1.1rem; color: #222; }
-        .item-meta { font-size: 0.9rem; color: #888; margin-bottom: 8px; font-weight: 500; }
-        .item-desc { font-size: 1rem; color: #555; }
-        
-        .highlight-quote {
-            display: block;
-            margin-top: 12px;
-            font-style: italic;
-            color: var(--accent-blue);
-            font-size: 0.95rem;
-            border-left: 3px solid var(--accent-gold);
-            padding-left: 15px;
-            background: #f9f9f9;
-            padding: 10px 15px;
-        }
-
-        /* TAGS (SKILLS) - Dùng màu accent */
-        .tag {
-            display: inline-block;
-            background: #eee;
-            color: #555;
-            padding: 6px 14px;
-            margin-bottom: 8px;
-            margin-right: 5px;
-            border-radius: 30px; /* Bo tròn mềm mại hơn */
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .tag.main { 
-            background: var(--accent-blue); 
-            color: #fff; 
-            box-shadow: 0 2px 5px rgba(44, 62, 80, 0.2);
-        }
-        .tag:hover { transform: translateY(-2px); }
-
-        /* FOOTER & LINKS */
-        .footer {
-            margin-top: 60px;
-            padding-top: 25px;
-            border-top: 1px solid #eee;
-            text-align: center;
-            font-size: 0.95rem;
-            color: #888;
-        }
-        .footer a {
-            color: var(--accent-blue);
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: 700;
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        /* Hiệu ứng gạch chân khi hover */
-        .footer a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-gold);
-            transition: width 0.3s ease;
-        }
-        .footer a:hover { color: var(--accent-gold); }
-        .footer a:hover::after { width: 100%; }
-
-        /* RESPONSIVE */
-        @media (max-width: 768px) {
-            .grid-container { grid-template-columns: 1fr; gap: 40px; }
-            .container { margin: 0; border-radius: 0; }
-            header { padding: 40px 20px; }
-            header h1 { font-size: 2.5rem; }
-            .content-wrapper { padding: 30px 20px; }
-        }
-    </style>
+    <title>CV - Tuan Dat</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="stars-small"></div>
+    <div class="stars-medium"></div>
+    <div class="stars-large"></div>
 
-<div class="container">
-    <header>
-        <div class="star s1"></div>
-        <div class="star s2"></div>
-        <div class="star s3"></div>
-        <div class="star s4"></div>
-        <div class="star s5"></div>
-
-        <h1>Tuan Dat</h1>
-        <div class="subtitle">Finance Student @FTU <span>|</span> Physics Enthusiast</div>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>TUAN DAT</h1>
+            <p class="subtitle">Web Developer & UI/UX Enthusiast</p>
+        </div>
+        <div class="scroll-down">
+            <span>Kéo xuống để khám phá</span>
+            <div class="arrow">↓</div>
+        </div>
     </header>
 
-    <div class="content-wrapper">
-        <div class="quote-box">
-            "Peace comes from within. Do not seek it without." <br>
-            — <strong>Buddha (Dhammapada)</strong>
-        </div>
+    <main class="container">
+        <section id="about" class="content-box">
+            <h2>Giới thiệu</h2>
+            <p>Xin chào, tôi là Tuấn Đạt. Một lập trình viên đam mê xây dựng những giao diện web đẹp mắt, trực quan và hiệu quả. Tôi yêu thích việc biến những ý tưởng phức tạp thành trải nghiệm người dùng mượt mà.</p>
+        </section>
 
-        <div class="grid-container">
-            <div class="main-content">
-                <section>
-                    <h2>🎓 Education</h2>
-                    <div class="item">
-                        <div class="item-title">Foreign Trade University (FTU)</div>
-                        <div class="item-meta">2022 - Present | Banking & Finance</div>
-                        <div class="item-desc">Major in Financial Analysis. Building a strong foundation in valuation, corporate finance, and data modeling.</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">Self-Study: The School of Physics</div>
-                        <div class="item-meta">Passion Project</div>
-                        <div class="item-desc">
-                            Exploring the beauty of the universe through <b>Astrophysics</b> and <b>General Relativity</b> theories.
-                            <span class="highlight-quote">"Look at the stars and see yourself running with them." — Marcus Aurelius</span>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h2>💼 Projects</h2>
-                    <div class="item">
-                        <div class="item-title">Data Analysis in Finance</div>
-                        <div class="item-desc">Using Python libraries to analyze market trends (Personal Research).</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">Digital Presence</div>
-                        <div class="item-desc">Sharing knowledge and perspectives on social platforms.</div>
-                    </div>
-                </section>
+        <section id="experience" class="content-box">
+            <h2>Kinh nghiệm làm việc</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Senior Web Developer</h3>
+                    <span class="date">2021 - Hiện tại</span>
+                    <p>Phát triển các ứng dụng web quy mô lớn, tối ưu hóa hiệu suất và dẫn dắt đội ngũ junior.</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>Web Developer</h3>
+                    <span class="date">2019 - 2021</span>
+                    <p>Thiết kế và lập trình giao diện người dùng (Front-end) cho các dự án thương mại điện tử.</p>
+                </div>
             </div>
+        </section>
 
-            <div class="sidebar">
-                <section>
-                    <h2>🛠 Technical</h2>
-                    <div>
-                        <span class="tag main">Python</span>
-                        <span class="tag main">NumPy</span>
-                        <span class="tag main">Pandas</span>
-                        <br>
-                        <span class="tag">Canva</span>
-                        <span class="tag">Notion</span>
-                        <span class="tag">GitHub</span>
-                    </div>
-                </section>
+        <section id="skills" class="content-box">
+            <h2>Kỹ năng nổi bật</h2>
+            <ul class="skills-list">
+                <li>HTML5 / CSS3 (SASS)</li>
+                <li>JavaScript (ES6+) / ReactJS</li>
+                <li>UI/UX Design Principles</li>
+                <li>Responsive Web Design</li>
+                <li>Git & Version Control</li>
+            </ul>
+        </section>
 
-                <br>
-
-                <section>
-                    <h2>🧬 Lifestyle</h2>
-                    <div class="item">
-                        <div class="item-title">🔭 Astronomy</div>
-                        <div class="item-meta">Stargazing</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">💪 Gym</div>
-                        <div class="item-meta">Discipline</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">🏸 Badminton</div>
-                        <div class="item-meta">Agility</div>
-                    </div>
-                    <div class="item">
-                        <div class="item-title">🎮 PUBG</div>
-                        <div class="item-meta">Tactics</div>
-                    </div>
-                </section>
+        <section id="contact" class="content-box footer-box">
+            <h2>Liên hệ</h2>
+            <p>Sẵn sàng cho những thử thách mới. Hãy kết nối với tôi!</p>
+            <div class="contact-links">
+                <a href="mailto:email@example.com">Email</a>
+                <a href="#">LinkedIn</a>
+                <a href="#">GitHub</a>
             </div>
-        </div>
-
-        <div class="footer">
-            <a href="https://github.com/TuanDat-creator">GitHub</a> • 
-            <a href="https://www.facebook.com/tuan.at.315430/">Facebook</a> • 
-            <a href="mailto:k61.2211320008@ftu.edu.vn">Email</a>
-        </div>
-    </div> </div>
-
+        </section>
+    </main>
 </body>
 </html>

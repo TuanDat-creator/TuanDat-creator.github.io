@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuấn Đạt | Hồ sơ Định hướng Nghề nghiệp</title>
+    <title>Tuấn Đạt | Hồ sơ Định hướng</title>
     <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         /* --- GIAO DIỆN TỐI GIẢN (MINIMALIST DARK THEME) --- */
         :root {
@@ -15,11 +15,11 @@
             --text-muted: #a3a3a3; 
             --border-color: #333333;
             --accent-color: #ffffff;
-            --highlight: #404040; /* Màu highlight nhẹ cho các đề mục */
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            /* Sử dụng Roboto và các font hệ thống để không bị lỗi dấu tiếng Việt */
+            font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
             margin: 0;
@@ -50,13 +50,13 @@
         .container {
             width: 95%;
             max-width: 1100px;
-            height: 90vh; /* Giới hạn chiều cao để scroll bên trong */
+            height: 90vh; 
             display: grid;
             grid-template-columns: 28% 70%;
             gap: 2%;
             border: 1px solid var(--border-color);
             background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(10px); /* Hiệu ứng mờ nền */
+            backdrop-filter: blur(10px);
             border-radius: 8px;
             padding: 24px;
             overflow: hidden;
@@ -70,16 +70,16 @@
             text-align: left;
             border-right: 1px solid var(--border-color);
             height: 100%;
-            overflow-y: auto; /* Cho phép cuộn nếu màn hình nhỏ */
+            overflow-y: auto; 
         }
 
         .profile-section h1 {
             font-size: 2.8rem; 
             margin: 0;
-            line-height: 1.1;
+            line-height: 1.2;
             text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: -0.5px;
+            font-weight: 700; /* Giảm độ đậm một chút để tránh lỗi font */
+            letter-spacing: 0.5px;
             margin-bottom: 8px;
             color: var(--text-main);
         }
@@ -102,7 +102,7 @@
             text-align: justify;
         }
         .intro-text p { margin-bottom: 12px; }
-        .intro-text strong { color: var(--text-main); font-weight: 600; }
+        .intro-text strong { color: var(--text-main); font-weight: 500; }
 
         /* LIÊN HỆ */
         .contact-group {
@@ -163,15 +163,15 @@
         .section-header {
             font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             color: var(--text-main);
             margin-bottom: 15px;
             font-weight: 700;
-            border-left: 3px solid #fff; /* Điểm nhấn đầu dòng */
+            border-left: 3px solid #fff;
             padding-left: 12px;
         }
 
-        /* MỤC TIÊU NGHỀ NGHIỆP (HIGHLIGHT) */
+        /* MỤC TIÊU NGHỀ NGHIỆP */
         .career-objective {
             background: rgba(255, 255, 255, 0.03);
             padding: 15px;
@@ -197,7 +197,7 @@
             align-items: baseline;
             margin-bottom: 4px;
         }
-        .exp-role { font-size: 1rem; font-weight: 600; color: #fff; }
+        .exp-role { font-size: 1rem; font-weight: 500; color: #fff; } /* Giảm weight */
         .exp-date { font-size: 0.8rem; color: #666; font-family: monospace; }
         .exp-company { font-size: 0.9rem; color: #aaa; margin-bottom: 8px; display: block; font-style: italic;}
         
@@ -205,7 +205,7 @@
         .exp-desc ul { margin: 5px 0 0 0; padding-left: 18px; }
         .exp-desc li { margin-bottom: 4px; }
 
-        /* GRID 2 CỘT CHO MỤC NHỎ */
+        /* GRID 2 CỘT */
         .grid-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -219,7 +219,7 @@
         .tag {
             font-size: 0.8rem;
             padding: 5px 10px;
-            color: #ddd;
+            color: #ccc;
             background: #262626;
             border: 1px solid #404040;
             border-radius: 3px;
@@ -264,8 +264,8 @@
             <div class="role-title">Sinh viên Tài chính - Ngân hàng</div>
             
             <div class="intro-text">
-                <p>Sinh viên năm cuối tại <strong>Đại học Ngoại thương (FTU)</strong>. Tôi sở hữu nền tảng tư duy logic sắc bén từ niềm yêu thích Vật lý, kết hợp với kiến thức chuyên sâu về nghiệp vụ Ngân hàng.</p>
-                <p>Tôi đang tìm kiếm cơ hội để kết nối khoảng cách giữa <strong>Ngân hàng truyền thống</strong> và <strong>Khoa học dữ liệu</strong>.</p>
+                <p>Sinh viên năm cuối tại <strong>Đại học Ngoại thương (FTU)</strong>. Tôi có sự cẩn trọng và tư duy logic được rèn luyện từ niềm yêu thích Vật lý, kết hợp với kiến thức nền tảng về nghiệp vụ Ngân hàng.</p>
+                <p>Tôi là người ham học hỏi và đang mong muốn tìm hiểu thêm về dữ liệu để hỗ trợ công việc chuyên môn.</p>
             </div>
 
             <div class="contact-group">
@@ -289,8 +289,8 @@
             <div class="section-block">
                 <div class="section-header">Định hướng Nghề nghiệp</div>
                 <div class="career-objective">
-                    <p style="margin-bottom: 10px;"><strong>Ngắn hạn:</strong> Trở thành Chuyên viên Khách hàng Cá nhân (Retail Banking) để am hiểu sâu sắc về sản phẩm, quy trình và nhu cầu khách hàng thực tế.</p>
-                    <p><strong>Dài hạn:</strong> Phát triển sang các vị trí Back-office thiên về Phân tích Dữ liệu (Banking Data Analyst) hoặc Quản trị Rủi ro, ứng dụng Khoa học máy tính để tối ưu hóa hoạt động ngân hàng.</p>
+                    <p style="margin-bottom: 10px;"><strong>Ngắn hạn:</strong> Mong muốn làm việc tại bộ phận Khách hàng Cá nhân (Retail Banking) để tích lũy kinh nghiệm thực tế về sản phẩm và quy trình.</p>
+                    <p><strong>Dài hạn:</strong> Tìm hiểu sâu hơn về Phân tích Dữ liệu (Data Analysis) trong ngân hàng để có thể hỗ trợ ra quyết định hoặc chuyển sang các vị trí Back-office liên quan đến dữ liệu/rủi ro.</p>
                 </div>
             </div>
 
@@ -303,7 +303,7 @@
                     </div>
                     <span class="exp-company">Chuyên ngành: Tài chính - Ngân hàng | GPA: Khá</span>
                     <div class="exp-desc">
-                        <strong>Các môn học tiêu biểu:</strong>
+                        <strong>Các môn học tâm đắc:</strong>
                         <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
                             <li>Tín dụng Ngân hàng</li>
                             <li>Quản trị Rủi ro</li>
@@ -327,9 +327,8 @@
                     <span class="exp-company">Ngân hàng TMCP Quân đội (MB Bank)</span>
                     <div class="exp-desc">
                         <ul>
-                            <li>Trải nghiệm thực tế môi trường Khách hàng Cá nhân (Retail Banking).</li>
-                            <li>Hỗ trợ xử lý hồ sơ, làm quen với hệ thống Core Banking và quy trình vận hành tín dụng.</li>
-                            <li>Quan sát và học hỏi kỹ năng tư vấn, chăm sóc khách hàng.</li>
+                            <li>Quan sát và học hỏi quy trình tại bộ phận Khách hàng Cá nhân.</li>
+                            <li>Hỗ trợ các anh chị xử lý hồ sơ cơ bản, làm quen với môi trường chuyên nghiệp và hệ thống ngân hàng.</li>
                         </ul>
                     </div>
                 </div>
@@ -342,9 +341,8 @@
                     <span class="exp-company">Công việc bán thời gian</span>
                     <div class="exp-desc">
                         <ul>
-                            <li>Rèn luyện kỹ năng <strong>Giao tiếp & Truyền đạt</strong> thông tin phức tạp một cách dễ hiểu.</li>
-                            <li>Phát triển kỹ năng <strong>Quản lý thời gian</strong> và chịu áp lực công việc.</li>
-                            <li>Duy trì tư duy logic sắc bén thông qua việc giải quyết các bài toán khó.</li>
+                            <li>Rèn luyện sự kiên nhẫn và kỹ năng truyền đạt thông tin.</li>
+                            <li>Cải thiện kỹ năng quản lý thời gian cá nhân.</li>
                         </ul>
                     </div>
                 </div>
@@ -355,39 +353,38 @@
                 <div class="grid-row">
                     <div class="exp-item">
                         <span class="exp-role" style="font-size: 0.95rem;">Cuộc thi "The Banker"</span>
-                        <span class="exp-company">Đại học Ngoại thương</span>
+                        <span class="exp-company">Thành viên tham gia</span>
                         <div class="exp-desc">
-                            Thành viên tham gia. Cọ xát kiến thức nghiệp vụ ngân hàng và giải quyết các case study thực tế.
+                            Học hỏi thêm kiến thức nghiệp vụ và tinh thần làm việc nhóm.
                         </div>
                     </div>
                     <div class="exp-item">
                         <span class="exp-role" style="font-size: 0.95rem;">Học sinh Giỏi Vật Lý</span>
-                        <span class="exp-company">Cấp Trường & Cấp Tỉnh</span>
+                        <span class="exp-company">Giải Nhất (Trường) & Giải Nhì (Tỉnh)</span>
                         <div class="exp-desc">
-                            Giải Nhất (Trường) & Giải Nhì (Tỉnh). Minh chứng cho khả năng tư duy định lượng tốt.
+                            Quá trình học tập giúp tôi hình thành tư duy logic nền tảng.
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="section-block">
-                <div class="section-header">Bộ Kỹ Năng (Skillset)</div>
+                <div class="section-header">Kỹ năng</div>
                 
                 <div class="skills-group">
-                    <div class="skills-label">Nghiệp vụ & Ngôn ngữ</div>
+                    <div class="skills-label">Nghiệp vụ</div>
                     <div class="skills-wrapper">
-                        <span class="tag">Nghiệp vụ Ngân hàng TM</span>
-                        <span class="tag">Phân tích Báo cáo tài chính</span>
-                        <span class="tag">Tiếng Anh (Đọc hiểu tài liệu)</span>
+                        <span class="tag">Nghiệp vụ Ngân hàng</span>
+                        <span class="tag">Đọc hiểu Báo cáo tài chính</span>
                     </div>
                 </div>
 
                 <div class="skills-group">
-                    <div class="skills-label">Công nghệ & Dữ liệu</div>
+                    <div class="skills-label">Công cụ & Ngôn ngữ</div>
                     <div class="skills-wrapper">
                         <span class="tag" style="border-color: #fff; color: #fff;">Excel & VBA (Khá)</span>
-                        <span class="tag">Python (Cơ bản)</span>
-                        <span class="tag">SQL (Đang tìm hiểu)</span>
+                        <span class="tag">Tiếng Anh (Cơ bản/Đang trau dồi)</span>
+                        <span class="tag">Python (Mới bắt đầu)</span>
                         <span class="tag">Notion</span>
                     </div>
                 </div>
@@ -396,15 +393,15 @@
                     <div class="skills-label">Kỹ năng mềm & Sở thích</div>
                     <div class="skills-wrapper">
                         <span class="tag">Giao tiếp</span>
-                        <span class="tag">Nghiên cứu & Tự học</span>
+                        <span class="tag">Lắng nghe</span>
                         <span class="tag">Đọc sách</span>
-                        <span class="tag">Tìm tòi công nghệ mới</span>
+                        <span class="tag">Nghiên cứu khoa học</span>
                     </div>
                 </div>
             </div>
 
             <div class="footer-quote">
-                "Mục tiêu của tôi là trang bị tư duy Khoa học dữ liệu để giải quyết các bài toán hiện đại của ngành Ngân hàng."
+                "Luôn cố gắng học hỏi mỗi ngày để hoàn thiện bản thân."
             </div>
 
         </main>
@@ -413,7 +410,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const starsContainer = document.getElementById('stars-container');
-            const numStars = 60; // Số lượng vừa phải, không rối mắt
+            const numStars = 60; 
 
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');

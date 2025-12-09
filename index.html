@@ -14,11 +14,9 @@
             --text-main: #e5e5e5; 
             --text-muted: #a3a3a3; 
             --border-color: #333333;
-            --accent-color: #ffffff;
         }
 
         body {
-            /* Sử dụng Roboto và các font hệ thống để không bị lỗi dấu tiếng Việt */
             font-family: 'Roboto', 'Segoe UI', Arial, sans-serif;
             background-color: var(--bg-body);
             color: var(--text-main);
@@ -78,7 +76,7 @@
             margin: 0;
             line-height: 1.2;
             text-transform: uppercase;
-            font-weight: 700; /* Giảm độ đậm một chút để tránh lỗi font */
+            font-weight: 700;
             letter-spacing: 0.5px;
             margin-bottom: 8px;
             color: var(--text-main);
@@ -197,7 +195,7 @@
             align-items: baseline;
             margin-bottom: 4px;
         }
-        .exp-role { font-size: 1rem; font-weight: 500; color: #fff; } /* Giảm weight */
+        .exp-role { font-size: 1rem; font-weight: 500; color: #fff; }
         .exp-date { font-size: 0.8rem; color: #666; font-family: monospace; }
         .exp-company { font-size: 0.9rem; color: #aaa; margin-bottom: 8px; display: block; font-style: italic;}
         
@@ -223,17 +221,6 @@
             background: #262626;
             border: 1px solid #404040;
             border-radius: 3px;
-        }
-
-        /* FOOTER QUOTE */
-        .footer-quote {
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9rem;
-            color: #666;
-            font-style: italic;
-            text-align: center;
         }
 
         /* RESPONSIVE */
@@ -328,7 +315,8 @@
                     <div class="exp-desc">
                         <ul>
                             <li>Quan sát và học hỏi quy trình tại bộ phận Khách hàng Cá nhân.</li>
-                            <li>Hỗ trợ các anh chị xử lý hồ sơ cơ bản, làm quen với môi trường chuyên nghiệp và hệ thống ngân hàng.</li>
+                            <li>Tham gia tư vấn, giới thiệu sản phẩm dịch vụ ngân hàng tới khách hàng.</li>
+                            <li>Hỗ trợ các anh chị xử lý hồ sơ cơ bản, làm quen với hệ thống ngân hàng.</li>
                         </ul>
                     </div>
                 </div>
@@ -375,17 +363,15 @@
                     <div class="skills-label">Nghiệp vụ</div>
                     <div class="skills-wrapper">
                         <span class="tag">Nghiệp vụ Ngân hàng</span>
-                        <span class="tag">Đọc hiểu Báo cáo tài chính</span>
                     </div>
                 </div>
 
                 <div class="skills-group">
                     <div class="skills-label">Công cụ & Ngôn ngữ</div>
                     <div class="skills-wrapper">
-                        <span class="tag" style="border-color: #fff; color: #fff;">Excel & VBA (Khá)</span>
-                        <span class="tag">Tiếng Anh (Cơ bản/Đang trau dồi)</span>
+                        <span class="tag">Excel & VBA (Nhập môn)</span>
+                        <span class="tag">Tiếng Anh (Cơ bản)</span>
                         <span class="tag">Python (Mới bắt đầu)</span>
-                        <span class="tag">Notion</span>
                     </div>
                 </div>
 
@@ -395,13 +381,8 @@
                         <span class="tag">Giao tiếp</span>
                         <span class="tag">Lắng nghe</span>
                         <span class="tag">Đọc sách</span>
-                        <span class="tag">Nghiên cứu khoa học</span>
                     </div>
                 </div>
-            </div>
-
-            <div class="footer-quote">
-                "Luôn cố gắng học hỏi mỗi ngày để hoàn thiện bản thân."
             </div>
 
         </main>

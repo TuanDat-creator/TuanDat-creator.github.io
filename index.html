@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tuấn Đạt | Hồ sơ năng lực</title>
+    <title>Tuấn Đạt | Hồ sơ Định hướng Nghề nghiệp</title>
     <link rel="icon" href="https://github.githubassets.com/favicons/favicon.svg">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         /* --- GIAO DIỆN TỐI GIẢN (MINIMALIST DARK THEME) --- */
         :root {
-            --bg-body: #050505; 
-            --bg-card: rgba(20, 20, 20, 0.8); 
-            --text-main: #ededed; 
-            --text-muted: #888888; 
-            --border-color: rgba(255, 255, 255, 0.08);
+            --bg-body: #0a0a0a; 
+            --bg-card: #141414; 
+            --text-main: #e5e5e5; 
+            --text-muted: #a3a3a3; 
+            --border-color: #333333;
             --accent-color: #ffffff;
+            --highlight: #404040; /* Màu highlight nhẹ cho các đề mục */
         }
 
         body {
@@ -28,7 +29,7 @@
             align-items: center;
             justify-content: center;
             overflow-x: hidden;
-            line-height: 1.5;
+            line-height: 1.6;
         }
 
         /* Sao nền tĩnh lặng */
@@ -42,21 +43,22 @@
             position: absolute;
             border-radius: 50%;
             background: #fff;
-            opacity: 0.3;
+            opacity: 0.2;
         }
 
         /* --- BỐ CỤC CHÍNH --- */
         .container {
             width: 95%;
             max-width: 1100px;
-            height: 90vh;
+            height: 90vh; /* Giới hạn chiều cao để scroll bên trong */
             display: grid;
-            grid-template-columns: 30% 68%;
-            gap: 20px;
+            grid-template-columns: 28% 70%;
+            gap: 2%;
             border: 1px solid var(--border-color);
-            background: rgba(10, 10, 10, 0.5);
-            border-radius: 4px;
-            padding: 20px;
+            background: rgba(20, 20, 20, 0.6);
+            backdrop-filter: blur(10px); /* Hiệu ứng mờ nền */
+            border-radius: 8px;
+            padding: 24px;
             overflow: hidden;
         }
 
@@ -64,59 +66,63 @@
         .profile-section {
             display: flex;
             flex-direction: column;
-            padding: 20px;
+            padding-right: 20px;
             text-align: left;
             border-right: 1px solid var(--border-color);
+            height: 100%;
+            overflow-y: auto; /* Cho phép cuộn nếu màn hình nhỏ */
         }
 
         .profile-section h1 {
-            font-size: 3rem; 
+            font-size: 2.8rem; 
             margin: 0;
-            line-height: 1;
+            line-height: 1.1;
             text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px;
             color: var(--text-main);
         }
 
         .role-title {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 30px;
-            font-weight: 400;
+            margin-bottom: 24px;
+            font-weight: 500;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
         }
 
         .intro-text {
             font-size: 0.9rem;
             color: var(--text-muted);
-            line-height: 1.6;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             text-align: justify;
         }
-        .intro-text strong { color: var(--text-main); }
+        .intro-text p { margin-bottom: 12px; }
+        .intro-text strong { color: var(--text-main); font-weight: 600; }
 
         /* LIÊN HỆ */
         .contact-group {
             margin-top: auto;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 12px;
         }
 
         .contact-item {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             display: flex;
             flex-direction: column;
-            gap: 4px;
         }
         .contact-label {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
-            color: #555;
-            font-weight: 600;
+            color: #666;
+            font-weight: 700;
+            margin-bottom: 2px;
         }
         .contact-value {
             color: var(--text-main);
@@ -124,10 +130,7 @@
             text-decoration: none;
             transition: color 0.2s;
         }
-        .contact-value:hover {
-            color: #fff;
-            text-decoration: underline;
-        }
+        .contact-value:hover { color: #fff; text-decoration: underline; }
 
         .social-links {
             display: flex;
@@ -139,7 +142,7 @@
         .social-link {
             color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: color 0.3s;
         }
         .social-link:hover { color: #fff; }
@@ -147,74 +150,79 @@
         /* --- CỘT PHẢI (NỘI DUNG) --- */
         .content-section {
             overflow-y: auto;
-            padding-left: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
             scrollbar-width: thin;
-            scrollbar-color: #333 transparent;
+            scrollbar-color: #444 transparent;
         }
-        .content-section::-webkit-scrollbar { width: 3px; }
-        .content-section::-webkit-scrollbar-thumb { background-color: #333; }
+        .content-section::-webkit-scrollbar { width: 4px; }
+        .content-section::-webkit-scrollbar-thumb { background-color: #444; border-radius: 2px; }
+
+        .section-block { margin-bottom: 35px; }
 
         .section-header {
-            font-size: 0.85rem;
+            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: #555;
-            margin-bottom: 20px;
+            letter-spacing: 1.5px;
+            color: var(--text-main);
+            margin-bottom: 15px;
             font-weight: 700;
-            border-bottom: 1px solid var(--border-color);
-            padding-bottom: 10px;
+            border-left: 3px solid #fff; /* Điểm nhấn đầu dòng */
+            padding-left: 12px;
         }
 
-        /* KHỐI KINH NGHIỆM */
-        .exp-item {
-            margin-bottom: 25px;
+        /* MỤC TIÊU NGHỀ NGHIỆP (HIGHLIGHT) */
+        .career-objective {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 30px;
         }
+        .career-objective b { color: #fff; }
+
+        /* KINH NGHIỆM & HỌC VẤN ITEM */
+        .exp-item {
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        .exp-item:last-child { border-bottom: none; }
+
         .exp-top {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
-        .exp-role {
-            font-size: 1.1rem;
-            font-weight: 600;
-            color: #fff;
-        }
-        .exp-date {
-            font-size: 0.85rem;
-            color: #666;
-            font-family: monospace;
-        }
-        .exp-company {
-            font-size: 0.9rem;
-            color: #aaa;
-            margin-bottom: 10px;
-            display: block;
-        }
-        .exp-desc {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-        .exp-desc ul { margin: 5px 0 0 0; padding-left: 15px; }
+        .exp-role { font-size: 1rem; font-weight: 600; color: #fff; }
+        .exp-date { font-size: 0.8rem; color: #666; font-family: monospace; }
+        .exp-company { font-size: 0.9rem; color: #aaa; margin-bottom: 8px; display: block; font-style: italic;}
+        
+        .exp-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+        .exp-desc ul { margin: 5px 0 0 0; padding-left: 18px; }
         .exp-desc li { margin-bottom: 4px; }
 
-        /* GRID 2 CỘT */
+        /* GRID 2 CỘT CHO MỤC NHỎ */
         .grid-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 30px;
+            gap: 20px;
         }
 
-        /* TAG KỸ NĂNG */
+        /* SKILLS TAGS */
+        .skills-group { margin-bottom: 15px; }
+        .skills-label { font-size: 0.8rem; color: #666; margin-bottom: 5px; text-transform: uppercase; font-weight: 600;}
         .skills-wrapper { display: flex; flex-wrap: wrap; gap: 8px; }
         .tag {
             font-size: 0.8rem;
-            padding: 4px 10px;
-            color: #ccc;
-            background: rgba(255,255,255,0.05);
-            border-radius: 2px;
-            white-space: nowrap;
+            padding: 5px 10px;
+            color: #ddd;
+            background: #262626;
+            border: 1px solid #404040;
+            border-radius: 3px;
         }
 
         /* FOOTER QUOTE */
@@ -233,13 +241,16 @@
             .container { 
                 grid-template-columns: 1fr; 
                 height: auto; 
-                border: none;
-                padding: 10px;
+                border: none; padding: 10px;
             }
-            .profile-section { border-right: none; border-bottom: 1px solid var(--border-color); padding: 0 0 30px 0; }
-            .content-section { padding-left: 0; padding-top: 30px; }
+            .profile-section { 
+                border-right: none; 
+                border-bottom: 1px solid var(--border-color); 
+                padding: 0 0 30px 0; 
+                height: auto;
+            }
+            .content-section { padding: 30px 0 0 0; overflow-y: visible; }
             .grid-row { grid-template-columns: 1fr; gap: 0; }
-            body { align-items: flex-start; }
         }
     </style>
 </head>
@@ -250,11 +261,11 @@
     <div class="container">
         <aside class="profile-section">
             <h1>TUẤN ĐẠT</h1>
-            <div class="role-title">Sinh viên Ngân hàng & Đam mê Tài chính</div>
+            <div class="role-title">Sinh viên Tài chính - Ngân hàng</div>
             
             <div class="intro-text">
-                <p>Sinh viên chuyên ngành Tài chính - Ngân hàng tại <strong> Trường Đại học Ngoại thương (FTU)</strong> với tính cách tỉ mỉ và kinh nghiệm thực tế trong nghiệp vụ ngân hàng cũng như giảng dạy.</p>
-                <p>Tôi luôn đề cao tính kỷ luật, sự chính xác và tìm kiếm vẻ đẹp của tư duy logic trong cả dữ liệu tài chính lẫn vũ trụ bao la.</p>
+                <p>Sinh viên năm cuối tại <strong>Đại học Ngoại thương (FTU)</strong>. Tôi sở hữu nền tảng tư duy logic sắc bén từ niềm yêu thích Vật lý, kết hợp với kiến thức chuyên sâu về nghiệp vụ Ngân hàng.</p>
+                <p>Tôi đang tìm kiếm cơ hội để kết nối khoảng cách giữa <strong>Ngân hàng truyền thống</strong> và <strong>Khoa học dữ liệu</strong>.</p>
             </div>
 
             <div class="contact-group">
@@ -262,16 +273,13 @@
                     <span class="contact-label">Điện thoại</span>
                     <a href="tel:0822132866" class="contact-value">0822132866</a>
                 </div>
-
                 <div class="contact-item">
                     <span class="contact-label">Email</span>
                     <a href="mailto:k61.2211320008@ftu.edu.vn" class="contact-value">k61.2211320008@ftu.edu.vn</a>
                 </div>
-
                 <div class="social-links">
-                    <a href="https://www.facebook.com/tuan.at.315430/" class="social-link" target="_blank">Facebook</a>
+                    <a href="https://www.facebook.com/tuan.at.315430/" target="_blank" class="social-link">Facebook</a>
                     <a href="#" class="social-link">LinkedIn</a>
-                    <a href="#" class="social-link">GitHub</a>
                 </div>
             </div>
         </aside>
@@ -279,99 +287,124 @@
         <main class="content-section">
             
             <div class="section-block">
+                <div class="section-header">Định hướng Nghề nghiệp</div>
+                <div class="career-objective">
+                    <p style="margin-bottom: 10px;"><strong>Ngắn hạn:</strong> Trở thành Chuyên viên Khách hàng Cá nhân (Retail Banking) để am hiểu sâu sắc về sản phẩm, quy trình và nhu cầu khách hàng thực tế.</p>
+                    <p><strong>Dài hạn:</strong> Phát triển sang các vị trí Back-office thiên về Phân tích Dữ liệu (Banking Data Analyst) hoặc Quản trị Rủi ro, ứng dụng Khoa học máy tính để tối ưu hóa hoạt động ngân hàng.</p>
+                </div>
+            </div>
+
+            <div class="section-block">
+                <div class="section-header">Học vấn & Chuyên môn</div>
+                <div class="exp-item">
+                    <div class="exp-top">
+                        <span class="exp-role">Đại học Ngoại thương (FTU)</span>
+                        <span class="exp-date">2022 - Nay</span>
+                    </div>
+                    <span class="exp-company">Chuyên ngành: Tài chính - Ngân hàng | GPA: Khá</span>
+                    <div class="exp-desc">
+                        <strong>Các môn học tiêu biểu:</strong>
+                        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px;">
+                            <li>Tín dụng Ngân hàng</li>
+                            <li>Quản trị Rủi ro</li>
+                            <li>Kế toán Ngân hàng</li>
+                            <li>Nguyên lý hoạt động NH</li>
+                            <li>Phân tích Đầu tư CK</li>
+                            <li>Tài chính Quốc tế</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-block">
                 <div class="section-header">Kinh nghiệm làm việc</div>
                 
                 <div class="exp-item">
                     <div class="exp-top">
-                        <span class="exp-role">Thực tập sinh</span>
+                        <span class="exp-role">Thực tập sinh (Phòng KHCN)</span>
                         <span class="exp-date">2023 - Nay</span>
                     </div>
                     <span class="exp-company">Ngân hàng TMCP Quân đội (MB Bank)</span>
                     <div class="exp-desc">
                         <ul>
-                            <li>Hỗ trợ bộ phận vận hành trong việc xử lý dữ liệu khách hàng và quản lý hồ sơ.</li>
-                            <li>Tham gia hỗ trợ các nghiệp vụ chăm sóc khách hàng và tìm hiểu quy trình giao dịch ngân hàng cốt lõi (Core Banking).</li>
+                            <li>Trải nghiệm thực tế môi trường Khách hàng Cá nhân (Retail Banking).</li>
+                            <li>Hỗ trợ xử lý hồ sơ, làm quen với hệ thống Core Banking và quy trình vận hành tín dụng.</li>
+                            <li>Quan sát và học hỏi kỹ năng tư vấn, chăm sóc khách hàng.</li>
                         </ul>
                     </div>
                 </div>
 
                 <div class="exp-item">
                     <div class="exp-top">
-                        <span class="exp-role">Gia sư riêng</span>
+                        <span class="exp-role">Gia sư Vật Lý & Toán</span>
                         <span class="exp-date">2022 - Nay</span>
                     </div>
-                    <span class="exp-company">Công việc tự do</span>
+                    <span class="exp-company">Công việc bán thời gian</span>
                     <div class="exp-desc">
                         <ul>
-                            <li>Chuyên dạy kèm môn <strong>Toán và Vật lý</strong> cho học sinh trung học phổ thông.</li>
-                            <li>Xây dựng lộ trình học cá nhân hóa giúp học sinh cải thiện tư duy logic và thành tích học tập.</li>
+                            <li>Rèn luyện kỹ năng <strong>Giao tiếp & Truyền đạt</strong> thông tin phức tạp một cách dễ hiểu.</li>
+                            <li>Phát triển kỹ năng <strong>Quản lý thời gian</strong> và chịu áp lực công việc.</li>
+                            <li>Duy trì tư duy logic sắc bén thông qua việc giải quyết các bài toán khó.</li>
                         </ul>
                     </div>
                 </div>
             </div>
 
-            <div class="grid-row">
-                <div class="section-block">
-                    <div class="section-header">Học vấn</div>
-                    <div class="exp-item">
-                        <span class="exp-role" style="font-size: 1rem;">Đại học Ngoại thương (FTU)</span>
-                        <span class="exp-company">Xếp loại: Khá | 2022 - Nay</span>
-                        <div class="exp-desc">
-                            Chuyên ngành: <strong>Tài chính - Ngân hàng</strong><br>
-                            Trọng tâm: Ngân hàng thương mại, Quản trị rủi ro.
-                        </div>
-                    </div>
-                </div>
-
-                <div class="section-block">
-                    <div class="section-header">Thành tích & Giải thưởng</div>
-                    <div class="exp-item">
-                        <div class="exp-desc">
-                            <li style="color: #fff; list-style: none; margin-bottom: 5px;"><strong>Giải Nhất Vật lý</strong></li>
-                            <span style="font-size: 0.85rem; color: #777;">Kỳ thi HSG cấp Trường</span>
-                        </div>
-                    </div>
-                    <div class="exp-item" style="margin-top: -10px;">
-                        <div class="exp-desc">
-                            <li style="color: #fff; list-style: none; margin-bottom: 5px;"><strong>Giải Nhì Vật lý</strong></li>
-                            <span style="font-size: 0.85rem; color: #777;">Kỳ thi HSG cấp Tỉnh</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-block" style="margin-top: 10px;">
-                <div class="section-header">Dự án tiêu biểu</div>
+            <div class="section-block">
+                <div class="section-header">Hoạt động & Thành tích</div>
                 <div class="grid-row">
                     <div class="exp-item">
-                        <span class="exp-role" style="font-size: 1rem;">Sport Hub</span>
-                        <div class="exp-desc" style="margin-top: 5px;">
-                            Xây dựng hệ thống quản lý và nền tảng cộng đồng dành cho người yêu thể thao.
+                        <span class="exp-role" style="font-size: 0.95rem;">Cuộc thi "The Banker"</span>
+                        <span class="exp-company">Đại học Ngoại thương</span>
+                        <div class="exp-desc">
+                            Thành viên tham gia. Cọ xát kiến thức nghiệp vụ ngân hàng và giải quyết các case study thực tế.
                         </div>
                     </div>
                     <div class="exp-item">
-                        <span class="exp-role" style="font-size: 1rem;">Nghiệp vụ SP Ngân hàng</span>
-                        <div class="exp-desc" style="margin-top: 5px;">
-                            Nghiên cứu chuyên sâu về các sản phẩm ngân hàng thương mại và quy trình vận hành.
+                        <span class="exp-role" style="font-size: 0.95rem;">Học sinh Giỏi Vật Lý</span>
+                        <span class="exp-company">Cấp Trường & Cấp Tỉnh</span>
+                        <div class="exp-desc">
+                            Giải Nhất (Trường) & Giải Nhì (Tỉnh). Minh chứng cho khả năng tư duy định lượng tốt.
                         </div>
                     </div>
                 </div>
             </div>
 
             <div class="section-block">
-                <div class="section-header">Kỹ năng chuyên môn</div>
-                <div class="skills-wrapper">
-                    <span class="tag">Nghiệp vụ Ngân hàng</span>
-                    <span class="tag">Phân tích Tài chính</span>
-                    <span class="tag">Python (Data)</span>
-                    <span class="tag">NumPy & Pandas</span>
-                    <span class="tag">Notion</span>
-                    <span class="tag">Tư duy Logic</span>
+                <div class="section-header">Bộ Kỹ Năng (Skillset)</div>
+                
+                <div class="skills-group">
+                    <div class="skills-label">Nghiệp vụ & Ngôn ngữ</div>
+                    <div class="skills-wrapper">
+                        <span class="tag">Nghiệp vụ Ngân hàng TM</span>
+                        <span class="tag">Phân tích Báo cáo tài chính</span>
+                        <span class="tag">Tiếng Anh (Đọc hiểu tài liệu)</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-label">Công nghệ & Dữ liệu</div>
+                    <div class="skills-wrapper">
+                        <span class="tag" style="border-color: #fff; color: #fff;">Excel & VBA (Khá)</span>
+                        <span class="tag">Python (Cơ bản)</span>
+                        <span class="tag">SQL (Đang tìm hiểu)</span>
+                        <span class="tag">Notion</span>
+                    </div>
+                </div>
+
+                <div class="skills-group">
+                    <div class="skills-label">Kỹ năng mềm & Sở thích</div>
+                    <div class="skills-wrapper">
+                        <span class="tag">Giao tiếp</span>
+                        <span class="tag">Nghiên cứu & Tự học</span>
+                        <span class="tag">Đọc sách</span>
+                        <span class="tag">Tìm tòi công nghệ mới</span>
+                    </div>
                 </div>
             </div>
 
             <div class="footer-quote">
-                "Dù là phân tích dữ liệu tài chính hay ngắm nhìn các vì sao, tôi luôn tìm kiếm trật tự ẩn sau sự hỗn loạn."
+                "Mục tiêu của tôi là trang bị tư duy Khoa học dữ liệu để giải quyết các bài toán hiện đại của ngành Ngân hàng."
             </div>
 
         </main>
@@ -380,7 +413,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             const starsContainer = document.getElementById('stars-container');
-            const numStars = 80; 
+            const numStars = 60; // Số lượng vừa phải, không rối mắt
 
             for (let i = 0; i < numStars; i++) {
                 const star = document.createElement('div');
@@ -393,7 +426,7 @@
                 star.style.width = `${size}px`;
                 star.style.height = `${size}px`;
                 
-                star.style.opacity = Math.random() * 0.4 + 0.1; 
+                star.style.opacity = Math.random() * 0.3 + 0.1; 
 
                 starsContainer.appendChild(star);
             }
